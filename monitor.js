@@ -36,14 +36,17 @@ async function pingUrl(company) {
       headers: { 'user-agent': 'Sentinel/1.0 (+https://sentinel.watch)' },
     })
     const responseMs = Date.now() - startTime
+    // Only 5xx responses count as genuine outages.
+    // 4xx (403 bot-blocking, 404 wrong path, 429 rate-limit) = site is reachable, not down.
+    const isDown = resp.status >= 500
     return {
       company_id: company.id,
       monitor_id: null,
-      status: resp.ok ? 'up' : 'down',
+      status: isDown ? 'down' : 'up',
       response_ms: responseMs,
       http_status: resp.status,
       region: 'github-actions',
-      statusDesc: resp.ok ? `HTTP ${resp.status}` : `HTTP ${resp.status} error`,
+      statusDesc: `HTTP ${resp.status}`,
     }
   } catch (e) {
     const responseMs = Date.now() - startTime
