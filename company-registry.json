@@ -94,5 +94,3973 @@
     "category": "monitoring",
     "tier": 2,
     "logo_url": "https://logo.clearbit.com/datadoghq.com"
+  },
+  {
+    "id": "digitalocean",
+    "name": "DigitalOcean",
+    "url": "https://www.digitalocean.com",
+    "category": "cloud",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/digitalocean.com"
+  },
+  {
+    "id": "linode",
+    "name": "Linode (Akamai)",
+    "url": "https://www.linode.com",
+    "category": "cloud",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/linode.com"
+  },
+  {
+    "id": "vultr",
+    "name": "Vultr",
+    "url": "https://www.vultr.com",
+    "category": "cloud",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/vultr.com"
+  },
+  {
+    "id": "heroku",
+    "name": "Heroku",
+    "url": "https://www.heroku.com",
+    "category": "cloud",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/heroku.com"
+  },
+  {
+    "id": "render",
+    "name": "Render",
+    "url": "https://render.com",
+    "category": "cloud",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/render.com"
+  },
+  {
+    "id": "railway",
+    "name": "Railway",
+    "url": "https://railway.app",
+    "category": "cloud",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/railway.app"
+  },
+  {
+    "id": "fly-io",
+    "name": "Fly.io",
+    "url": "https://fly.io",
+    "category": "cloud",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/fly.io"
+  },
+  {
+    "id": "netlify",
+    "name": "Netlify",
+    "url": "https://www.netlify.com",
+    "category": "cloud",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/netlify.com"
+  },
+  {
+    "id": "azure",
+    "name": "Microsoft Azure",
+    "url": "https://azure.microsoft.com",
+    "category": "cloud",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/azure.microsoft.com"
+  },
+  {
+    "id": "gcp",
+    "name": "Google Cloud",
+    "url": "https://cloud.google.com",
+    "category": "cloud",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/cloud.google.com"
+  },
+  {
+    "id": "oracle-cloud",
+    "name": "Oracle Cloud",
+    "url": "https://www.oracle.com/cloud",
+    "category": "cloud",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/oracle.com"
+  },
+  {
+    "id": "ibm-cloud",
+    "name": "IBM Cloud",
+    "url": "https://www.ibm.com/cloud",
+    "category": "cloud",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/ibm.com"
+  },
+  {
+    "id": "alibaba-cloud",
+    "name": "Alibaba Cloud",
+    "url": "https://www.alibabacloud.com",
+    "category": "cloud",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/alibabacloud.com"
+  },
+  {
+    "id": "hetzner",
+    "name": "Hetzner",
+    "url": "https://www.hetzner.com",
+    "category": "cloud",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/hetzner.com"
+  },
+  {
+    "id": "ovhcloud",
+    "name": "OVHcloud",
+    "url": "https://www.ovhcloud.com",
+    "category": "cloud",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/ovhcloud.com"
+  },
+  {
+    "id": "scaleway",
+    "name": "Scaleway",
+    "url": "https://www.scaleway.com",
+    "category": "cloud",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/scaleway.com"
+  },
+  {
+    "id": "cloudways",
+    "name": "Cloudways",
+    "url": "https://www.cloudways.com",
+    "category": "cloud",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/cloudways.com"
+  },
+  {
+    "id": "fastly",
+    "name": "Fastly",
+    "url": "https://www.fastly.com",
+    "category": "cdn",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/fastly.com"
+  },
+  {
+    "id": "akamai",
+    "name": "Akamai",
+    "url": "https://www.akamai.com",
+    "category": "cdn",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/akamai.com"
+  },
+  {
+    "id": "bunnycdn",
+    "name": "BunnyCDN",
+    "url": "https://bunny.net",
+    "category": "cdn",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/bunny.net"
+  },
+  {
+    "id": "keycdn",
+    "name": "KeyCDN",
+    "url": "https://www.keycdn.com",
+    "category": "cdn",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/keycdn.com"
+  },
+  {
+    "id": "gitlab",
+    "name": "GitLab",
+    "url": "https://gitlab.com",
+    "category": "developer",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/gitlab.com"
+  },
+  {
+    "id": "bitbucket",
+    "name": "Bitbucket",
+    "url": "https://bitbucket.org",
+    "category": "developer",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/bitbucket.org"
+  },
+  {
+    "id": "npm",
+    "name": "npm Registry",
+    "url": "https://registry.npmjs.org",
+    "category": "developer",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/registry.npmjs.org"
+  },
+  {
+    "id": "docker-hub",
+    "name": "Docker Hub",
+    "url": "https://hub.docker.com",
+    "category": "developer",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/hub.docker.com"
+  },
+  {
+    "id": "circleci",
+    "name": "CircleCI",
+    "url": "https://circleci.com",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/circleci.com"
+  },
+  {
+    "id": "travis-ci",
+    "name": "Travis CI",
+    "url": "https://travis-ci.com",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/travis-ci.com"
+  },
+  {
+    "id": "jenkins",
+    "name": "Jenkins",
+    "url": "https://www.jenkins.io",
+    "category": "developer",
+    "tier": 3,
+    "logo_url": "https://logo.clearbit.com/jenkins.io"
+  },
+  {
+    "id": "linear",
+    "name": "Linear",
+    "url": "https://linear.app",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/linear.app"
+  },
+  {
+    "id": "sentry",
+    "name": "Sentry",
+    "url": "https://sentry.io",
+    "category": "monitoring",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/sentry.io"
+  },
+  {
+    "id": "codecov",
+    "name": "Codecov",
+    "url": "https://about.codecov.io",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/about.codecov.io"
+  },
+  {
+    "id": "sonarcloud",
+    "name": "SonarCloud",
+    "url": "https://sonarcloud.io",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/sonarcloud.io"
+  },
+  {
+    "id": "snyk",
+    "name": "Snyk",
+    "url": "https://snyk.io",
+    "category": "security",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/snyk.io"
+  },
+  {
+    "id": "dependabot",
+    "name": "Dependabot",
+    "url": "https://docs.github.com/en/code-security/dependabot",
+    "category": "security",
+    "tier": 3,
+    "logo_url": "https://logo.clearbit.com/docs.github.com"
+  },
+  {
+    "id": "hashicorp-vault",
+    "name": "HashiCorp Vault",
+    "url": "https://www.vaultproject.io",
+    "category": "security",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/vaultproject.io"
+  },
+  {
+    "id": "1password",
+    "name": "1Password",
+    "url": "https://1password.com",
+    "category": "security",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/1password.com"
+  },
+  {
+    "id": "bitwarden",
+    "name": "Bitwarden",
+    "url": "https://bitwarden.com",
+    "category": "security",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/bitwarden.com"
+  },
+  {
+    "id": "paypal",
+    "name": "PayPal",
+    "url": "https://www.paypal.com",
+    "category": "payments",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/paypal.com"
+  },
+  {
+    "id": "square",
+    "name": "Square",
+    "url": "https://squareup.com",
+    "category": "payments",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/squareup.com"
+  },
+  {
+    "id": "adyen",
+    "name": "Adyen",
+    "url": "https://www.adyen.com",
+    "category": "payments",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/adyen.com"
+  },
+  {
+    "id": "braintree",
+    "name": "Braintree",
+    "url": "https://www.braintreepayments.com",
+    "category": "payments",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/braintreepayments.com"
+  },
+  {
+    "id": "checkout-com",
+    "name": "Checkout.com",
+    "url": "https://www.checkout.com",
+    "category": "payments",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/checkout.com"
+  },
+  {
+    "id": "plaid",
+    "name": "Plaid",
+    "url": "https://plaid.com",
+    "category": "fintech",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/plaid.com"
+  },
+  {
+    "id": "wise",
+    "name": "Wise",
+    "url": "https://wise.com",
+    "category": "fintech",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/wise.com"
+  },
+  {
+    "id": "revolut",
+    "name": "Revolut",
+    "url": "https://www.revolut.com",
+    "category": "fintech",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/revolut.com"
+  },
+  {
+    "id": "chime",
+    "name": "Chime",
+    "url": "https://www.chime.com",
+    "category": "fintech",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/chime.com"
+  },
+  {
+    "id": "robinhood",
+    "name": "Robinhood",
+    "url": "https://robinhood.com",
+    "category": "fintech",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/robinhood.com"
+  },
+  {
+    "id": "coinbase",
+    "name": "Coinbase",
+    "url": "https://www.coinbase.com",
+    "category": "crypto",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/coinbase.com"
+  },
+  {
+    "id": "binance",
+    "name": "Binance",
+    "url": "https://www.binance.com",
+    "category": "crypto",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/binance.com"
+  },
+  {
+    "id": "kraken",
+    "name": "Kraken",
+    "url": "https://www.kraken.com",
+    "category": "crypto",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/kraken.com"
+  },
+  {
+    "id": "metamask",
+    "name": "MetaMask",
+    "url": "https://metamask.io",
+    "category": "crypto",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/metamask.io"
+  },
+  {
+    "id": "lemonsqueezy",
+    "name": "Lemon Squeezy",
+    "url": "https://www.lemonsqueezy.com",
+    "category": "payments",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/lemonsqueezy.com"
+  },
+  {
+    "id": "paddle",
+    "name": "Paddle",
+    "url": "https://www.paddle.com",
+    "category": "payments",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/paddle.com"
+  },
+  {
+    "id": "gumroad",
+    "name": "Gumroad",
+    "url": "https://gumroad.com",
+    "category": "payments",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/gumroad.com"
+  },
+  {
+    "id": "razorpay",
+    "name": "Razorpay",
+    "url": "https://razorpay.com",
+    "category": "payments",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/razorpay.com"
+  },
+  {
+    "id": "sendgrid",
+    "name": "SendGrid",
+    "url": "https://sendgrid.com",
+    "category": "communications",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/sendgrid.com"
+  },
+  {
+    "id": "mailgun",
+    "name": "Mailgun",
+    "url": "https://www.mailgun.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/mailgun.com"
+  },
+  {
+    "id": "postmark",
+    "name": "Postmark",
+    "url": "https://postmarkapp.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/postmarkapp.com"
+  },
+  {
+    "id": "mailchimp",
+    "name": "Mailchimp",
+    "url": "https://mailchimp.com",
+    "category": "communications",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/mailchimp.com"
+  },
+  {
+    "id": "convertkit",
+    "name": "ConvertKit",
+    "url": "https://convertkit.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/convertkit.com"
+  },
+  {
+    "id": "brevo",
+    "name": "Brevo (Sendinblue)",
+    "url": "https://www.brevo.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/brevo.com"
+  },
+  {
+    "id": "klaviyo",
+    "name": "Klaviyo",
+    "url": "https://www.klaviyo.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/klaviyo.com"
+  },
+  {
+    "id": "customerio",
+    "name": "Customer.io",
+    "url": "https://customer.io",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/customer.io"
+  },
+  {
+    "id": "resend",
+    "name": "Resend",
+    "url": "https://resend.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/resend.com"
+  },
+  {
+    "id": "loops",
+    "name": "Loops",
+    "url": "https://loops.so",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/loops.so"
+  },
+  {
+    "id": "vonage",
+    "name": "Vonage",
+    "url": "https://www.vonage.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/vonage.com"
+  },
+  {
+    "id": "messagebird",
+    "name": "MessageBird",
+    "url": "https://www.messagebird.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/messagebird.com"
+  },
+  {
+    "id": "pusher",
+    "name": "Pusher",
+    "url": "https://pusher.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/pusher.com"
+  },
+  {
+    "id": "ably",
+    "name": "Ably",
+    "url": "https://ably.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/ably.com"
+  },
+  {
+    "id": "salesforce",
+    "name": "Salesforce",
+    "url": "https://www.salesforce.com",
+    "category": "crm",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/salesforce.com"
+  },
+  {
+    "id": "pipedrive",
+    "name": "Pipedrive",
+    "url": "https://www.pipedrive.com",
+    "category": "crm",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/pipedrive.com"
+  },
+  {
+    "id": "zoho-crm",
+    "name": "Zoho CRM",
+    "url": "https://www.zoho.com/crm",
+    "category": "crm",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/zoho.com"
+  },
+  {
+    "id": "monday-com",
+    "name": "Monday.com",
+    "url": "https://monday.com",
+    "category": "crm",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/monday.com"
+  },
+  {
+    "id": "closeio",
+    "name": "Close",
+    "url": "https://close.com",
+    "category": "crm",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/close.com"
+  },
+  {
+    "id": "apollo",
+    "name": "Apollo.io",
+    "url": "https://www.apollo.io",
+    "category": "crm",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/apollo.io"
+  },
+  {
+    "id": "outreach",
+    "name": "Outreach",
+    "url": "https://www.outreach.io",
+    "category": "crm",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/outreach.io"
+  },
+  {
+    "id": "intercom",
+    "name": "Intercom",
+    "url": "https://www.intercom.com",
+    "category": "support",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/intercom.com"
+  },
+  {
+    "id": "freshdesk",
+    "name": "Freshdesk",
+    "url": "https://freshdesk.com",
+    "category": "support",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/freshdesk.com"
+  },
+  {
+    "id": "helpscout",
+    "name": "Help Scout",
+    "url": "https://www.helpscout.com",
+    "category": "support",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/helpscout.com"
+  },
+  {
+    "id": "crisp",
+    "name": "Crisp",
+    "url": "https://crisp.chat",
+    "category": "support",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/crisp.chat"
+  },
+  {
+    "id": "livechat",
+    "name": "LiveChat",
+    "url": "https://www.livechat.com",
+    "category": "support",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/livechat.com"
+  },
+  {
+    "id": "drift",
+    "name": "Drift",
+    "url": "https://www.drift.com",
+    "category": "support",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/drift.com"
+  },
+  {
+    "id": "tawk",
+    "name": "Tawk.to",
+    "url": "https://www.tawk.to",
+    "category": "support",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/tawk.to"
+  },
+  {
+    "id": "newrelic",
+    "name": "New Relic",
+    "url": "https://newrelic.com",
+    "category": "monitoring",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/newrelic.com"
+  },
+  {
+    "id": "grafana",
+    "name": "Grafana",
+    "url": "https://grafana.com",
+    "category": "monitoring",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/grafana.com"
+  },
+  {
+    "id": "pagerduty",
+    "name": "PagerDuty",
+    "url": "https://www.pagerduty.com",
+    "category": "monitoring",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/pagerduty.com"
+  },
+  {
+    "id": "pingdom",
+    "name": "Pingdom",
+    "url": "https://www.pingdom.com",
+    "category": "monitoring",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/pingdom.com"
+  },
+  {
+    "id": "uptimerobot",
+    "name": "UptimeRobot",
+    "url": "https://uptimerobot.com",
+    "category": "monitoring",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/uptimerobot.com"
+  },
+  {
+    "id": "freshping",
+    "name": "Freshping",
+    "url": "https://www.freshworks.com/website-monitoring",
+    "category": "monitoring",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/freshworks.com"
+  },
+  {
+    "id": "betterstack",
+    "name": "Better Stack",
+    "url": "https://betterstack.com",
+    "category": "monitoring",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/betterstack.com"
+  },
+  {
+    "id": "honeycomb",
+    "name": "Honeycomb",
+    "url": "https://www.honeycomb.io",
+    "category": "monitoring",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/honeycomb.io"
+  },
+  {
+    "id": "lightstep",
+    "name": "Lightstep",
+    "url": "https://lightstep.com",
+    "category": "monitoring",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/lightstep.com"
+  },
+  {
+    "id": "dynatrace",
+    "name": "Dynatrace",
+    "url": "https://www.dynatrace.com",
+    "category": "monitoring",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/dynatrace.com"
+  },
+  {
+    "id": "bigcommerce",
+    "name": "BigCommerce",
+    "url": "https://www.bigcommerce.com",
+    "category": "ecommerce",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/bigcommerce.com"
+  },
+  {
+    "id": "woocommerce",
+    "name": "WooCommerce",
+    "url": "https://woocommerce.com",
+    "category": "ecommerce",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/woocommerce.com"
+  },
+  {
+    "id": "magento",
+    "name": "Magento (Adobe)",
+    "url": "https://business.adobe.com/products/magento/magento-commerce.html",
+    "category": "ecommerce",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/business.adobe.com"
+  },
+  {
+    "id": "amazon",
+    "name": "Amazon",
+    "url": "https://www.amazon.com",
+    "category": "ecommerce",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/amazon.com"
+  },
+  {
+    "id": "ebay",
+    "name": "eBay",
+    "url": "https://www.ebay.com",
+    "category": "ecommerce",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/ebay.com"
+  },
+  {
+    "id": "etsy",
+    "name": "Etsy",
+    "url": "https://www.etsy.com",
+    "category": "ecommerce",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/etsy.com"
+  },
+  {
+    "id": "wix",
+    "name": "Wix",
+    "url": "https://www.wix.com",
+    "category": "ecommerce",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/wix.com"
+  },
+  {
+    "id": "squarespace",
+    "name": "Squarespace",
+    "url": "https://www.squarespace.com",
+    "category": "ecommerce",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/squarespace.com"
+  },
+  {
+    "id": "webflow",
+    "name": "Webflow",
+    "url": "https://webflow.com",
+    "category": "ecommerce",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/webflow.com"
+  },
+  {
+    "id": "framer",
+    "name": "Framer",
+    "url": "https://www.framer.com",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/framer.com"
+  },
+  {
+    "id": "swell",
+    "name": "Swell",
+    "url": "https://www.swell.is",
+    "category": "ecommerce",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/swell.is"
+  },
+  {
+    "id": "medusa",
+    "name": "Medusa",
+    "url": "https://medusajs.com",
+    "category": "ecommerce",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/medusajs.com"
+  },
+  {
+    "id": "twitter-x",
+    "name": "X (Twitter)",
+    "url": "https://x.com",
+    "category": "social",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/x.com"
+  },
+  {
+    "id": "facebook",
+    "name": "Facebook",
+    "url": "https://www.facebook.com",
+    "category": "social",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/facebook.com"
+  },
+  {
+    "id": "instagram",
+    "name": "Instagram",
+    "url": "https://www.instagram.com",
+    "category": "social",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/instagram.com"
+  },
+  {
+    "id": "linkedin",
+    "name": "LinkedIn",
+    "url": "https://www.linkedin.com",
+    "category": "social",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/linkedin.com"
+  },
+  {
+    "id": "tiktok",
+    "name": "TikTok",
+    "url": "https://www.tiktok.com",
+    "category": "social",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/tiktok.com"
+  },
+  {
+    "id": "reddit",
+    "name": "Reddit",
+    "url": "https://www.reddit.com",
+    "category": "social",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/reddit.com"
+  },
+  {
+    "id": "discord",
+    "name": "Discord",
+    "url": "https://discord.com",
+    "category": "social",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/discord.com"
+  },
+  {
+    "id": "slack",
+    "name": "Slack",
+    "url": "https://slack.com",
+    "category": "communications",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/slack.com"
+  },
+  {
+    "id": "teams",
+    "name": "Microsoft Teams",
+    "url": "https://www.microsoft.com/en-us/microsoft-teams",
+    "category": "communications",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/microsoft.com"
+  },
+  {
+    "id": "zoom",
+    "name": "Zoom",
+    "url": "https://zoom.us",
+    "category": "communications",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/zoom.us"
+  },
+  {
+    "id": "youtube",
+    "name": "YouTube",
+    "url": "https://www.youtube.com",
+    "category": "streaming",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/youtube.com"
+  },
+  {
+    "id": "twitch",
+    "name": "Twitch",
+    "url": "https://www.twitch.tv",
+    "category": "streaming",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/twitch.tv"
+  },
+  {
+    "id": "spotify",
+    "name": "Spotify",
+    "url": "https://www.spotify.com",
+    "category": "streaming",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/spotify.com"
+  },
+  {
+    "id": "netflix",
+    "name": "Netflix",
+    "url": "https://www.netflix.com",
+    "category": "streaming",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/netflix.com"
+  },
+  {
+    "id": "apple-music",
+    "name": "Apple Music",
+    "url": "https://music.apple.com",
+    "category": "streaming",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/music.apple.com"
+  },
+  {
+    "id": "substack",
+    "name": "Substack",
+    "url": "https://substack.com",
+    "category": "social",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/substack.com"
+  },
+  {
+    "id": "medium",
+    "name": "Medium",
+    "url": "https://medium.com",
+    "category": "social",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/medium.com"
+  },
+  {
+    "id": "ghost",
+    "name": "Ghost",
+    "url": "https://ghost.org",
+    "category": "social",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/ghost.org"
+  },
+  {
+    "id": "wordpress-com",
+    "name": "WordPress.com",
+    "url": "https://wordpress.com",
+    "category": "cms",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/wordpress.com"
+  },
+  {
+    "id": "wordpress-org",
+    "name": "WordPress.org",
+    "url": "https://wordpress.org",
+    "category": "cms",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/wordpress.org"
+  },
+  {
+    "id": "drupal",
+    "name": "Drupal",
+    "url": "https://www.drupal.org",
+    "category": "cms",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/drupal.org"
+  },
+  {
+    "id": "contentful",
+    "name": "Contentful",
+    "url": "https://www.contentful.com",
+    "category": "cms",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/contentful.com"
+  },
+  {
+    "id": "sanity",
+    "name": "Sanity",
+    "url": "https://www.sanity.io",
+    "category": "cms",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/sanity.io"
+  },
+  {
+    "id": "storyblok",
+    "name": "Storyblok",
+    "url": "https://www.storyblok.com",
+    "category": "cms",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/storyblok.com"
+  },
+  {
+    "id": "prismic",
+    "name": "Prismic",
+    "url": "https://prismic.io",
+    "category": "cms",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/prismic.io"
+  },
+  {
+    "id": "auth0",
+    "name": "Auth0 (Okta)",
+    "url": "https://auth0.com",
+    "category": "security",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/auth0.com"
+  },
+  {
+    "id": "okta",
+    "name": "Okta",
+    "url": "https://www.okta.com",
+    "category": "security",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/okta.com"
+  },
+  {
+    "id": "firebase-auth",
+    "name": "Firebase Auth",
+    "url": "https://firebase.google.com/products/auth",
+    "category": "security",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/firebase.google.com"
+  },
+  {
+    "id": "cognito",
+    "name": "AWS Cognito",
+    "url": "https://aws.amazon.com/cognito",
+    "category": "security",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/aws.amazon.com"
+  },
+  {
+    "id": "clerk",
+    "name": "Clerk",
+    "url": "https://clerk.com",
+    "category": "security",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/clerk.com"
+  },
+  {
+    "id": "workos",
+    "name": "WorkOS",
+    "url": "https://workos.com",
+    "category": "security",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/workos.com"
+  },
+  {
+    "id": "stytch",
+    "name": "Stytch",
+    "url": "https://stytch.com",
+    "category": "security",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/stytch.com"
+  },
+  {
+    "id": "magic-link",
+    "name": "Magic",
+    "url": "https://magic.link",
+    "category": "security",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/magic.link"
+  },
+  {
+    "id": "mongodb",
+    "name": "MongoDB Atlas",
+    "url": "https://www.mongodb.com",
+    "category": "database",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/mongodb.com"
+  },
+  {
+    "id": "planetscale",
+    "name": "PlanetScale",
+    "url": "https://planetscale.com",
+    "category": "database",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/planetscale.com"
+  },
+  {
+    "id": "neon",
+    "name": "Neon",
+    "url": "https://neon.tech",
+    "category": "database",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/neon.tech"
+  },
+  {
+    "id": "turso",
+    "name": "Turso",
+    "url": "https://turso.tech",
+    "category": "database",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/turso.tech"
+  },
+  {
+    "id": "redis",
+    "name": "Redis Cloud",
+    "url": "https://redis.com",
+    "category": "database",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/redis.com"
+  },
+  {
+    "id": "upstash",
+    "name": "Upstash",
+    "url": "https://upstash.com",
+    "category": "database",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/upstash.com"
+  },
+  {
+    "id": "fauna",
+    "name": "Fauna",
+    "url": "https://fauna.com",
+    "category": "database",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/fauna.com"
+  },
+  {
+    "id": "cockroachdb",
+    "name": "CockroachDB",
+    "url": "https://www.cockroachlabs.com",
+    "category": "database",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/cockroachlabs.com"
+  },
+  {
+    "id": "backblaze",
+    "name": "Backblaze B2",
+    "url": "https://www.backblaze.com/b2/cloud-storage.html",
+    "category": "storage",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/backblaze.com"
+  },
+  {
+    "id": "wasabi",
+    "name": "Wasabi",
+    "url": "https://wasabi.com",
+    "category": "storage",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/wasabi.com"
+  },
+  {
+    "id": "cloudinary",
+    "name": "Cloudinary",
+    "url": "https://cloudinary.com",
+    "category": "storage",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/cloudinary.com"
+  },
+  {
+    "id": "imgix",
+    "name": "Imgix",
+    "url": "https://imgix.com",
+    "category": "storage",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/imgix.com"
+  },
+  {
+    "id": "openai",
+    "name": "OpenAI",
+    "url": "https://api.openai.com",
+    "category": "ai",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/api.openai.com"
+  },
+  {
+    "id": "anthropic",
+    "name": "Anthropic",
+    "url": "https://api.anthropic.com",
+    "category": "ai",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/api.anthropic.com"
+  },
+  {
+    "id": "huggingface",
+    "name": "Hugging Face",
+    "url": "https://huggingface.co",
+    "category": "ai",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/huggingface.co"
+  },
+  {
+    "id": "replicate",
+    "name": "Replicate",
+    "url": "https://replicate.com",
+    "category": "ai",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/replicate.com"
+  },
+  {
+    "id": "together-ai",
+    "name": "Together AI",
+    "url": "https://www.together.ai",
+    "category": "ai",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/together.ai"
+  },
+  {
+    "id": "groq",
+    "name": "Groq",
+    "url": "https://groq.com",
+    "category": "ai",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/groq.com"
+  },
+  {
+    "id": "perplexity",
+    "name": "Perplexity",
+    "url": "https://www.perplexity.ai",
+    "category": "ai",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/perplexity.ai"
+  },
+  {
+    "id": "mistral",
+    "name": "Mistral AI",
+    "url": "https://mistral.ai",
+    "category": "ai",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/mistral.ai"
+  },
+  {
+    "id": "cohere",
+    "name": "Cohere",
+    "url": "https://cohere.com",
+    "category": "ai",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/cohere.com"
+  },
+  {
+    "id": "elevenlabs",
+    "name": "ElevenLabs",
+    "url": "https://elevenlabs.io",
+    "category": "ai",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/elevenlabs.io"
+  },
+  {
+    "id": "stability-ai",
+    "name": "Stability AI",
+    "url": "https://stability.ai",
+    "category": "ai",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/stability.ai"
+  },
+  {
+    "id": "midjourney",
+    "name": "Midjourney",
+    "url": "https://www.midjourney.com",
+    "category": "ai",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/midjourney.com"
+  },
+  {
+    "id": "runway",
+    "name": "Runway",
+    "url": "https://runwayml.com",
+    "category": "ai",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/runwayml.com"
+  },
+  {
+    "id": "pinecone",
+    "name": "Pinecone",
+    "url": "https://www.pinecone.io",
+    "category": "ai",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/pinecone.io"
+  },
+  {
+    "id": "weaviate",
+    "name": "Weaviate",
+    "url": "https://weaviate.io",
+    "category": "ai",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/weaviate.io"
+  },
+  {
+    "id": "langchain",
+    "name": "LangChain",
+    "url": "https://www.langchain.com",
+    "category": "ai",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/langchain.com"
+  },
+  {
+    "id": "google-analytics",
+    "name": "Google Analytics",
+    "url": "https://analytics.google.com",
+    "category": "analytics",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/analytics.google.com"
+  },
+  {
+    "id": "mixpanel",
+    "name": "Mixpanel",
+    "url": "https://mixpanel.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/mixpanel.com"
+  },
+  {
+    "id": "amplitude",
+    "name": "Amplitude",
+    "url": "https://amplitude.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/amplitude.com"
+  },
+  {
+    "id": "segment",
+    "name": "Segment",
+    "url": "https://segment.com",
+    "category": "analytics",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/segment.com"
+  },
+  {
+    "id": "posthog",
+    "name": "PostHog",
+    "url": "https://posthog.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/posthog.com"
+  },
+  {
+    "id": "heap",
+    "name": "Heap",
+    "url": "https://heap.io",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/heap.io"
+  },
+  {
+    "id": "fullstory",
+    "name": "FullStory",
+    "url": "https://www.fullstory.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/fullstory.com"
+  },
+  {
+    "id": "hotjar",
+    "name": "Hotjar",
+    "url": "https://www.hotjar.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/hotjar.com"
+  },
+  {
+    "id": "plausible",
+    "name": "Plausible",
+    "url": "https://plausible.io",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/plausible.io"
+  },
+  {
+    "id": "fathom",
+    "name": "Fathom",
+    "url": "https://usefathom.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/usefathom.com"
+  },
+  {
+    "id": "chartmogul",
+    "name": "ChartMogul",
+    "url": "https://chartmogul.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/chartmogul.com"
+  },
+  {
+    "id": "baremetrics",
+    "name": "Baremetrics",
+    "url": "https://baremetrics.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/baremetrics.com"
+  },
+  {
+    "id": "notion",
+    "name": "Notion",
+    "url": "https://www.notion.so",
+    "category": "productivity",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/notion.so"
+  },
+  {
+    "id": "airtable",
+    "name": "Airtable",
+    "url": "https://airtable.com",
+    "category": "productivity",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/airtable.com"
+  },
+  {
+    "id": "coda",
+    "name": "Coda",
+    "url": "https://coda.io",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/coda.io"
+  },
+  {
+    "id": "clickup",
+    "name": "ClickUp",
+    "url": "https://clickup.com",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/clickup.com"
+  },
+  {
+    "id": "asana",
+    "name": "Asana",
+    "url": "https://asana.com",
+    "category": "productivity",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/asana.com"
+  },
+  {
+    "id": "trello",
+    "name": "Trello",
+    "url": "https://trello.com",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/trello.com"
+  },
+  {
+    "id": "basecamp",
+    "name": "Basecamp",
+    "url": "https://basecamp.com",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/basecamp.com"
+  },
+  {
+    "id": "todoist",
+    "name": "Todoist",
+    "url": "https://todoist.com",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/todoist.com"
+  },
+  {
+    "id": "figma",
+    "name": "Figma",
+    "url": "https://www.figma.com",
+    "category": "design",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/figma.com"
+  },
+  {
+    "id": "canva",
+    "name": "Canva",
+    "url": "https://www.canva.com",
+    "category": "design",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/canva.com"
+  },
+  {
+    "id": "miro",
+    "name": "Miro",
+    "url": "https://miro.com",
+    "category": "design",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/miro.com"
+  },
+  {
+    "id": "loom",
+    "name": "Loom",
+    "url": "https://www.loom.com",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/loom.com"
+  },
+  {
+    "id": "calendly",
+    "name": "Calendly",
+    "url": "https://calendly.com",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/calendly.com"
+  },
+  {
+    "id": "cal-com",
+    "name": "Cal.com",
+    "url": "https://cal.com",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/cal.com"
+  },
+  {
+    "id": "algolia",
+    "name": "Algolia",
+    "url": "https://www.algolia.com",
+    "category": "search",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/algolia.com"
+  },
+  {
+    "id": "elasticsearch",
+    "name": "Elastic",
+    "url": "https://www.elastic.co",
+    "category": "search",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/elastic.co"
+  },
+  {
+    "id": "meilisearch",
+    "name": "Meilisearch",
+    "url": "https://www.meilisearch.com",
+    "category": "search",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/meilisearch.com"
+  },
+  {
+    "id": "typesense",
+    "name": "Typesense",
+    "url": "https://typesense.org",
+    "category": "search",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/typesense.org"
+  },
+  {
+    "id": "google-search",
+    "name": "Google Search",
+    "url": "https://www.google.com",
+    "category": "search",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/google.com"
+  },
+  {
+    "id": "bing",
+    "name": "Bing",
+    "url": "https://www.bing.com",
+    "category": "search",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/bing.com"
+  },
+  {
+    "id": "duckduckgo",
+    "name": "DuckDuckGo",
+    "url": "https://duckduckgo.com",
+    "category": "search",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/duckduckgo.com"
+  },
+  {
+    "id": "google-dns",
+    "name": "Google DNS",
+    "url": "https://dns.google",
+    "category": "networking",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/dns.google"
+  },
+  {
+    "id": "cloudflare-dns",
+    "name": "Cloudflare DNS",
+    "url": "https://one.one.one.one",
+    "category": "networking",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/one.one.one.one"
+  },
+  {
+    "id": "godaddy",
+    "name": "GoDaddy",
+    "url": "https://www.godaddy.com",
+    "category": "networking",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/godaddy.com"
+  },
+  {
+    "id": "namecheap",
+    "name": "Namecheap",
+    "url": "https://www.namecheap.com",
+    "category": "networking",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/namecheap.com"
+  },
+  {
+    "id": "porkbun",
+    "name": "Porkbun",
+    "url": "https://porkbun.com",
+    "category": "networking",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/porkbun.com"
+  },
+  {
+    "id": "launchdarkly",
+    "name": "LaunchDarkly",
+    "url": "https://launchdarkly.com",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/launchdarkly.com"
+  },
+  {
+    "id": "split-io",
+    "name": "Split.io",
+    "url": "https://www.split.io",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/split.io"
+  },
+  {
+    "id": "optimizely",
+    "name": "Optimizely",
+    "url": "https://www.optimizely.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/optimizely.com"
+  },
+  {
+    "id": "growthbook",
+    "name": "GrowthBook",
+    "url": "https://www.growthbook.io",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/growthbook.io"
+  },
+  {
+    "id": "statsig",
+    "name": "Statsig",
+    "url": "https://statsig.com",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/statsig.com"
+  },
+  {
+    "id": "flagsmith",
+    "name": "Flagsmith",
+    "url": "https://flagsmith.com",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/flagsmith.com"
+  },
+  {
+    "id": "terraform",
+    "name": "HashiCorp Terraform",
+    "url": "https://www.terraform.io",
+    "category": "devops",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/terraform.io"
+  },
+  {
+    "id": "ansible",
+    "name": "Ansible",
+    "url": "https://www.ansible.com",
+    "category": "devops",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/ansible.com"
+  },
+  {
+    "id": "kubernetes",
+    "name": "Kubernetes.io",
+    "url": "https://kubernetes.io",
+    "category": "devops",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/kubernetes.io"
+  },
+  {
+    "id": "helm",
+    "name": "Helm",
+    "url": "https://helm.sh",
+    "category": "devops",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/helm.sh"
+  },
+  {
+    "id": "argocd",
+    "name": "Argo CD",
+    "url": "https://argoproj.github.io/cd",
+    "category": "devops",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/argoproj.github.io"
+  },
+  {
+    "id": "prometheus",
+    "name": "Prometheus",
+    "url": "https://prometheus.io",
+    "category": "monitoring",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/prometheus.io"
+  },
+  {
+    "id": "vector-dev",
+    "name": "Vector.dev",
+    "url": "https://vector.dev",
+    "category": "devops",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/vector.dev"
+  },
+  {
+    "id": "gusto",
+    "name": "Gusto",
+    "url": "https://gusto.com",
+    "category": "hr",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/gusto.com"
+  },
+  {
+    "id": "rippling",
+    "name": "Rippling",
+    "url": "https://www.rippling.com",
+    "category": "hr",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/rippling.com"
+  },
+  {
+    "id": "workday",
+    "name": "Workday",
+    "url": "https://www.workday.com",
+    "category": "hr",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/workday.com"
+  },
+  {
+    "id": "bamboohr",
+    "name": "BambooHR",
+    "url": "https://www.bamboohr.com",
+    "category": "hr",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/bamboohr.com"
+  },
+  {
+    "id": "deel",
+    "name": "Deel",
+    "url": "https://www.deel.com",
+    "category": "hr",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/deel.com"
+  },
+  {
+    "id": "greenhouse",
+    "name": "Greenhouse",
+    "url": "https://www.greenhouse.io",
+    "category": "hr",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/greenhouse.io"
+  },
+  {
+    "id": "lever",
+    "name": "Lever",
+    "url": "https://www.lever.co",
+    "category": "hr",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/lever.co"
+  },
+  {
+    "id": "docusign",
+    "name": "DocuSign",
+    "url": "https://www.docusign.com",
+    "category": "legal",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/docusign.com"
+  },
+  {
+    "id": "hellosign",
+    "name": "Dropbox Sign",
+    "url": "https://sign.dropbox.com",
+    "category": "legal",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/sign.dropbox.com"
+  },
+  {
+    "id": "ironclad",
+    "name": "Ironclad",
+    "url": "https://ironcladapp.com",
+    "category": "legal",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/ironcladapp.com"
+  },
+  {
+    "id": "pandadoc",
+    "name": "PandaDoc",
+    "url": "https://www.pandadoc.com",
+    "category": "legal",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/pandadoc.com"
+  },
+  {
+    "id": "zapier",
+    "name": "Zapier",
+    "url": "https://zapier.com",
+    "category": "automation",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/zapier.com"
+  },
+  {
+    "id": "make",
+    "name": "Make (Integromat)",
+    "url": "https://www.make.com",
+    "category": "automation",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/make.com"
+  },
+  {
+    "id": "n8n",
+    "name": "n8n",
+    "url": "https://n8n.io",
+    "category": "automation",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/n8n.io"
+  },
+  {
+    "id": "retool",
+    "name": "Retool",
+    "url": "https://retool.com",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/retool.com"
+  },
+  {
+    "id": "appsmith",
+    "name": "Appsmith",
+    "url": "https://www.appsmith.com",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/appsmith.com"
+  },
+  {
+    "id": "bubble",
+    "name": "Bubble",
+    "url": "https://bubble.io",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/bubble.io"
+  },
+  {
+    "id": "glide",
+    "name": "Glide",
+    "url": "https://www.glideapps.com",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/glideapps.com"
+  },
+  {
+    "id": "typeform",
+    "name": "Typeform",
+    "url": "https://www.typeform.com",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/typeform.com"
+  },
+  {
+    "id": "surveymonkey",
+    "name": "SurveyMonkey",
+    "url": "https://www.surveymonkey.com",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/surveymonkey.com"
+  },
+  {
+    "id": "tally",
+    "name": "Tally",
+    "url": "https://tally.so",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/tally.so"
+  },
+  {
+    "id": "dropbox",
+    "name": "Dropbox",
+    "url": "https://www.dropbox.com",
+    "category": "storage",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/dropbox.com"
+  },
+  {
+    "id": "box",
+    "name": "Box",
+    "url": "https://www.box.com",
+    "category": "storage",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/box.com"
+  },
+  {
+    "id": "onedrive",
+    "name": "OneDrive",
+    "url": "https://onedrive.live.com",
+    "category": "storage",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/onedrive.live.com"
+  },
+  {
+    "id": "google-drive",
+    "name": "Google Drive",
+    "url": "https://drive.google.com",
+    "category": "storage",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/drive.google.com"
+  },
+  {
+    "id": "icloud",
+    "name": "iCloud",
+    "url": "https://www.icloud.com",
+    "category": "storage",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/icloud.com"
+  },
+  {
+    "id": "livekit",
+    "name": "LiveKit",
+    "url": "https://livekit.io",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/livekit.io"
+  },
+  {
+    "id": "daily",
+    "name": "Daily.co",
+    "url": "https://www.daily.co",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/daily.co"
+  },
+  {
+    "id": "agora",
+    "name": "Agora",
+    "url": "https://www.agora.io",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/agora.io"
+  },
+  {
+    "id": "whereby",
+    "name": "Whereby",
+    "url": "https://whereby.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/whereby.com"
+  },
+  {
+    "id": "google-meet",
+    "name": "Google Meet",
+    "url": "https://meet.google.com",
+    "category": "communications",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/meet.google.com"
+  },
+  {
+    "id": "webex",
+    "name": "Cisco Webex",
+    "url": "https://www.webex.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/webex.com"
+  },
+  {
+    "id": "recurly",
+    "name": "Recurly",
+    "url": "https://recurly.com",
+    "category": "payments",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/recurly.com"
+  },
+  {
+    "id": "chargebee",
+    "name": "Chargebee",
+    "url": "https://www.chargebee.com",
+    "category": "payments",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/chargebee.com"
+  },
+  {
+    "id": "zuora",
+    "name": "Zuora",
+    "url": "https://www.zuora.com",
+    "category": "payments",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/zuora.com"
+  },
+  {
+    "id": "chargify",
+    "name": "Chargify",
+    "url": "https://www.chargify.com",
+    "category": "payments",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/chargify.com"
+  },
+  {
+    "id": "google-maps",
+    "name": "Google Maps",
+    "url": "https://maps.googleapis.com",
+    "category": "mapping",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/maps.googleapis.com"
+  },
+  {
+    "id": "mapbox",
+    "name": "Mapbox",
+    "url": "https://www.mapbox.com",
+    "category": "mapping",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/mapbox.com"
+  },
+  {
+    "id": "here",
+    "name": "HERE Maps",
+    "url": "https://www.here.com",
+    "category": "mapping",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/here.com"
+  },
+  {
+    "id": "openstreetmap",
+    "name": "OpenStreetMap",
+    "url": "https://www.openstreetmap.org",
+    "category": "mapping",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/openstreetmap.org"
+  },
+  {
+    "id": "intercom-messenger",
+    "name": "Intercom Messenger",
+    "url": "https://js.intercomcdn.com",
+    "category": "support",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/js.intercomcdn.com"
+  },
+  {
+    "id": "onesignal",
+    "name": "OneSignal",
+    "url": "https://onesignal.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/onesignal.com"
+  },
+  {
+    "id": "pushwoosh",
+    "name": "Pushwoosh",
+    "url": "https://www.pushwoosh.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/pushwoosh.com"
+  },
+  {
+    "id": "appsflyer",
+    "name": "AppsFlyer",
+    "url": "https://www.appsflyer.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/appsflyer.com"
+  },
+  {
+    "id": "adjust",
+    "name": "Adjust",
+    "url": "https://www.adjust.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/adjust.com"
+  },
+  {
+    "id": "branch",
+    "name": "Branch",
+    "url": "https://www.branch.io",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/branch.io"
+  },
+  {
+    "id": "clevertap",
+    "name": "CleverTap",
+    "url": "https://clevertap.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/clevertap.com"
+  },
+  {
+    "id": "braze",
+    "name": "Braze",
+    "url": "https://www.braze.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/braze.com"
+  },
+  {
+    "id": "iterable",
+    "name": "Iterable",
+    "url": "https://iterable.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/iterable.com"
+  },
+  {
+    "id": "sailthru",
+    "name": "Sailthru",
+    "url": "https://www.sailthru.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/sailthru.com"
+  },
+  {
+    "id": "sendpulse",
+    "name": "SendPulse",
+    "url": "https://sendpulse.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/sendpulse.com"
+  },
+  {
+    "id": "drip",
+    "name": "Drip",
+    "url": "https://www.drip.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/drip.com"
+  },
+  {
+    "id": "activecampaign",
+    "name": "ActiveCampaign",
+    "url": "https://www.activecampaign.com",
+    "category": "communications",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/activecampaign.com"
+  },
+  {
+    "id": "constant-contact",
+    "name": "Constant Contact",
+    "url": "https://www.constantcontact.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/constantcontact.com"
+  },
+  {
+    "id": "campaign-monitor",
+    "name": "Campaign Monitor",
+    "url": "https://www.campaignmonitor.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/campaignmonitor.com"
+  },
+  {
+    "id": "getresponse",
+    "name": "GetResponse",
+    "url": "https://www.getresponse.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/getresponse.com"
+  },
+  {
+    "id": "moosend",
+    "name": "Moosend",
+    "url": "https://moosend.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/moosend.com"
+  },
+  {
+    "id": "omnisend",
+    "name": "Omnisend",
+    "url": "https://www.omnisend.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/omnisend.com"
+  },
+  {
+    "id": "sendlane",
+    "name": "Sendlane",
+    "url": "https://www.sendlane.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/sendlane.com"
+  },
+  {
+    "id": "emma",
+    "name": "Emma",
+    "url": "https://myemma.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/myemma.com"
+  },
+  {
+    "id": "benchmark",
+    "name": "Benchmark Email",
+    "url": "https://www.benchmarkemail.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/benchmarkemail.com"
+  },
+  {
+    "id": "mailerlite",
+    "name": "MailerLite",
+    "url": "https://www.mailerlite.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/mailerlite.com"
+  },
+  {
+    "id": "netcore",
+    "name": "Netcore Cloud",
+    "url": "https://netcorecloud.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/netcorecloud.com"
+  },
+  {
+    "id": "mailjet",
+    "name": "Mailjet",
+    "url": "https://www.mailjet.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/mailjet.com"
+  },
+  {
+    "id": "sparkpost",
+    "name": "SparkPost",
+    "url": "https://www.sparkpost.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/sparkpost.com"
+  },
+  {
+    "id": "socketlabs",
+    "name": "SocketLabs",
+    "url": "https://www.socketlabs.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/socketlabs.com"
+  },
+  {
+    "id": "pepipost",
+    "name": "Pepipost",
+    "url": "https://www.pepipost.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/pepipost.com"
+  },
+  {
+    "id": "elastic-email",
+    "name": "Elastic Email",
+    "url": "https://elasticemail.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/elasticemail.com"
+  },
+  {
+    "id": "emailoctopus",
+    "name": "EmailOctopus",
+    "url": "https://emailoctopus.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/emailoctopus.com"
+  },
+  {
+    "id": "mailmodo",
+    "name": "Mailmodo",
+    "url": "https://www.mailmodo.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/mailmodo.com"
+  },
+  {
+    "id": "encharge",
+    "name": "Encharge",
+    "url": "https://encharge.io",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/encharge.io"
+  },
+  {
+    "id": "userlist",
+    "name": "Userlist",
+    "url": "https://userlist.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/userlist.com"
+  },
+  {
+    "id": "vero",
+    "name": "Vero",
+    "url": "https://www.getvero.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/getvero.com"
+  },
+  {
+    "id": "autopilot",
+    "name": "Ortto (Autopilot)",
+    "url": "https://ortto.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/ortto.com"
+  },
+  {
+    "id": "uservoice",
+    "name": "UserVoice",
+    "url": "https://uservoice.com",
+    "category": "support",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/uservoice.com"
+  },
+  {
+    "id": "survicate",
+    "name": "Survicate",
+    "url": "https://survicate.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/survicate.com"
+  },
+  {
+    "id": "delighted",
+    "name": "Delighted",
+    "url": "https://delighted.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/delighted.com"
+  },
+  {
+    "id": "qualtrics",
+    "name": "Qualtrics",
+    "url": "https://www.qualtrics.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/qualtrics.com"
+  },
+  {
+    "id": "medallia",
+    "name": "Medallia",
+    "url": "https://www.medallia.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/medallia.com"
+  },
+  {
+    "id": "nicereply",
+    "name": "Nicereply",
+    "url": "https://www.nicereply.com",
+    "category": "support",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/nicereply.com"
+  },
+  {
+    "id": "satismeter",
+    "name": "Satismeter",
+    "url": "https://www.satismeter.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/satismeter.com"
+  },
+  {
+    "id": "wootric",
+    "name": "Wootric",
+    "url": "https://wootric.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/wootric.com"
+  },
+  {
+    "id": "promoter",
+    "name": "Promoter.io",
+    "url": "https://www.promoter.io",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/promoter.io"
+  },
+  {
+    "id": "retently",
+    "name": "Retently",
+    "url": "https://www.retently.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/retently.com"
+  },
+  {
+    "id": "asknicely",
+    "name": "AskNicely",
+    "url": "https://www.asknicely.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/asknicely.com"
+  },
+  {
+    "id": "usersnap",
+    "name": "Usersnap",
+    "url": "https://usersnap.com",
+    "category": "support",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/usersnap.com"
+  },
+  {
+    "id": "bugsnag",
+    "name": "Bugsnag",
+    "url": "https://www.bugsnag.com",
+    "category": "monitoring",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/bugsnag.com"
+  },
+  {
+    "id": "rollbar",
+    "name": "Rollbar",
+    "url": "https://rollbar.com",
+    "category": "monitoring",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/rollbar.com"
+  },
+  {
+    "id": "raygun",
+    "name": "Raygun",
+    "url": "https://raygun.com",
+    "category": "monitoring",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/raygun.com"
+  },
+  {
+    "id": "airbrake",
+    "name": "Airbrake",
+    "url": "https://airbrake.io",
+    "category": "monitoring",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/airbrake.io"
+  },
+  {
+    "id": "logrocket",
+    "name": "LogRocket",
+    "url": "https://logrocket.com",
+    "category": "monitoring",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/logrocket.com"
+  },
+  {
+    "id": "instabug",
+    "name": "Instabug",
+    "url": "https://www.instabug.com",
+    "category": "monitoring",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/instabug.com"
+  },
+  {
+    "id": "sumo-logic",
+    "name": "Sumo Logic",
+    "url": "https://www.sumologic.com",
+    "category": "monitoring",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/sumologic.com"
+  },
+  {
+    "id": "splunk",
+    "name": "Splunk",
+    "url": "https://www.splunk.com",
+    "category": "monitoring",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/splunk.com"
+  },
+  {
+    "id": "zipkin",
+    "name": "Zipkin",
+    "url": "https://zipkin.io",
+    "category": "monitoring",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/zipkin.io"
+  },
+  {
+    "id": "jaeger",
+    "name": "Jaeger",
+    "url": "https://www.jaegertracing.io",
+    "category": "monitoring",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/jaegertracing.io"
+  },
+  {
+    "id": "opentelemetry",
+    "name": "OpenTelemetry",
+    "url": "https://opentelemetry.io",
+    "category": "monitoring",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/opentelemetry.io"
+  },
+  {
+    "id": "rootly",
+    "name": "Rootly",
+    "url": "https://rootly.com",
+    "category": "monitoring",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/rootly.com"
+  },
+  {
+    "id": "incident-io",
+    "name": "Incident.io",
+    "url": "https://incident.io",
+    "category": "monitoring",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/incident.io"
+  },
+  {
+    "id": "firehydrant",
+    "name": "FireHydrant",
+    "url": "https://firehydrant.com",
+    "category": "monitoring",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/firehydrant.com"
+  },
+  {
+    "id": "blameless",
+    "name": "Blameless",
+    "url": "https://www.blameless.com",
+    "category": "monitoring",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/blameless.com"
+  },
+  {
+    "id": "opslevel",
+    "name": "OpsLevel",
+    "url": "https://www.opslevel.com",
+    "category": "devops",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/opslevel.com"
+  },
+  {
+    "id": "cortex",
+    "name": "Cortex",
+    "url": "https://www.cortex.io",
+    "category": "devops",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/cortex.io"
+  },
+  {
+    "id": "backstage",
+    "name": "Spotify Backstage",
+    "url": "https://backstage.io",
+    "category": "devops",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/backstage.io"
+  },
+  {
+    "id": "port-labs",
+    "name": "Port",
+    "url": "https://www.getport.io",
+    "category": "devops",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/getport.io"
+  },
+  {
+    "id": "configure8",
+    "name": "Configure8",
+    "url": "https://www.configure8.io",
+    "category": "devops",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/configure8.io"
+  },
+  {
+    "id": "humanitec",
+    "name": "Humanitec",
+    "url": "https://humanitec.com",
+    "category": "devops",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/humanitec.com"
+  },
+  {
+    "id": "env0",
+    "name": "env0",
+    "url": "https://www.env0.com",
+    "category": "devops",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/env0.com"
+  },
+  {
+    "id": "spacelift",
+    "name": "Spacelift",
+    "url": "https://spacelift.io",
+    "category": "devops",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/spacelift.io"
+  },
+  {
+    "id": "atlantis",
+    "name": "Atlantis",
+    "url": "https://www.runatlantis.io",
+    "category": "devops",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/runatlantis.io"
+  },
+  {
+    "id": "pulumi",
+    "name": "Pulumi",
+    "url": "https://www.pulumi.com",
+    "category": "devops",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/pulumi.com"
+  },
+  {
+    "id": "crossplane",
+    "name": "Crossplane",
+    "url": "https://www.crossplane.io",
+    "category": "devops",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/crossplane.io"
+  },
+  {
+    "id": "flux",
+    "name": "Flux CD",
+    "url": "https://fluxcd.io",
+    "category": "devops",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/fluxcd.io"
+  },
+  {
+    "id": "tekton",
+    "name": "Tekton",
+    "url": "https://tekton.dev",
+    "category": "devops",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/tekton.dev"
+  },
+  {
+    "id": "dagger",
+    "name": "Dagger",
+    "url": "https://dagger.io",
+    "category": "devops",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/dagger.io"
+  },
+  {
+    "id": "earthly",
+    "name": "Earthly",
+    "url": "https://earthly.dev",
+    "category": "devops",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/earthly.dev"
+  },
+  {
+    "id": "nx",
+    "name": "Nx",
+    "url": "https://nx.dev",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/nx.dev"
+  },
+  {
+    "id": "turborepo",
+    "name": "Turborepo",
+    "url": "https://turbo.build",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/turbo.build"
+  },
+  {
+    "id": "lerna",
+    "name": "Lerna",
+    "url": "https://lerna.js.org",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/lerna.js.org"
+  },
+  {
+    "id": "semantic-release",
+    "name": "semantic-release",
+    "url": "https://semantic-release.gitbook.io",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/semantic-release.gitbook.io"
+  },
+  {
+    "id": "xero",
+    "name": "Xero",
+    "url": "https://www.xero.com",
+    "category": "fintech",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/xero.com"
+  },
+  {
+    "id": "quickbooks",
+    "name": "QuickBooks Online",
+    "url": "https://quickbooks.intuit.com",
+    "category": "fintech",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/quickbooks.intuit.com"
+  },
+  {
+    "id": "freshbooks",
+    "name": "FreshBooks",
+    "url": "https://www.freshbooks.com",
+    "category": "fintech",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/freshbooks.com"
+  },
+  {
+    "id": "wave",
+    "name": "Wave",
+    "url": "https://www.waveapps.com",
+    "category": "fintech",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/waveapps.com"
+  },
+  {
+    "id": "bench",
+    "name": "Bench",
+    "url": "https://bench.co",
+    "category": "fintech",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/bench.co"
+  },
+  {
+    "id": "pilot",
+    "name": "Pilot",
+    "url": "https://pilot.com",
+    "category": "fintech",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/pilot.com"
+  },
+  {
+    "id": "mercury",
+    "name": "Mercury",
+    "url": "https://mercury.com",
+    "category": "fintech",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/mercury.com"
+  },
+  {
+    "id": "ramp",
+    "name": "Ramp",
+    "url": "https://ramp.com",
+    "category": "fintech",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/ramp.com"
+  },
+  {
+    "id": "brex",
+    "name": "Brex",
+    "url": "https://www.brex.com",
+    "category": "fintech",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/brex.com"
+  },
+  {
+    "id": "expensify",
+    "name": "Expensify",
+    "url": "https://www.expensify.com",
+    "category": "fintech",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/expensify.com"
+  },
+  {
+    "id": "bill-com",
+    "name": "Bill.com",
+    "url": "https://www.bill.com",
+    "category": "fintech",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/bill.com"
+  },
+  {
+    "id": "stripe-billing",
+    "name": "Stripe Billing",
+    "url": "https://stripe.com/billing",
+    "category": "payments",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/stripe.com"
+  },
+  {
+    "id": "revenuecat",
+    "name": "RevenueCat",
+    "url": "https://www.revenuecat.com",
+    "category": "payments",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/revenuecat.com"
+  },
+  {
+    "id": "maxio",
+    "name": "Maxio",
+    "url": "https://www.maxio.com",
+    "category": "payments",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/maxio.com"
+  },
+  {
+    "id": "sonatype",
+    "name": "Sonatype Nexus",
+    "url": "https://www.sonatype.com",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/sonatype.com"
+  },
+  {
+    "id": "jfrog",
+    "name": "JFrog",
+    "url": "https://jfrog.com",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/jfrog.com"
+  },
+  {
+    "id": "pypi",
+    "name": "PyPI",
+    "url": "https://pypi.org",
+    "category": "developer",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/pypi.org"
+  },
+  {
+    "id": "rubygems",
+    "name": "RubyGems",
+    "url": "https://rubygems.org",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/rubygems.org"
+  },
+  {
+    "id": "packagist",
+    "name": "Packagist",
+    "url": "https://packagist.org",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/packagist.org"
+  },
+  {
+    "id": "crates-io",
+    "name": "crates.io",
+    "url": "https://crates.io",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/crates.io"
+  },
+  {
+    "id": "nuget",
+    "name": "NuGet",
+    "url": "https://www.nuget.org",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/nuget.org"
+  },
+  {
+    "id": "maven-central",
+    "name": "Maven Central",
+    "url": "https://repo1.maven.org",
+    "category": "developer",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/repo1.maven.org"
+  },
+  {
+    "id": "hex-pm",
+    "name": "Hex.pm",
+    "url": "https://hex.pm",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/hex.pm"
+  },
+  {
+    "id": "hackage",
+    "name": "Hackage",
+    "url": "https://hackage.haskell.org",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/hackage.haskell.org"
+  },
+  {
+    "id": "pub-dev",
+    "name": "pub.dev",
+    "url": "https://pub.dev",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/pub.dev"
+  },
+  {
+    "id": "conan",
+    "name": "Conan Center",
+    "url": "https://conan.io/center",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/conan.io"
+  },
+  {
+    "id": "vcpkg",
+    "name": "vcpkg",
+    "url": "https://vcpkg.io",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/vcpkg.io"
+  },
+  {
+    "id": "crowdstrike",
+    "name": "CrowdStrike",
+    "url": "https://www.crowdstrike.com",
+    "category": "security",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/crowdstrike.com"
+  },
+  {
+    "id": "sentinelone",
+    "name": "SentinelOne",
+    "url": "https://www.sentinelone.com",
+    "category": "security",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/sentinelone.com"
+  },
+  {
+    "id": "palo-alto",
+    "name": "Palo Alto Networks",
+    "url": "https://www.paloaltonetworks.com",
+    "category": "security",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/paloaltonetworks.com"
+  },
+  {
+    "id": "zscaler",
+    "name": "Zscaler",
+    "url": "https://www.zscaler.com",
+    "category": "security",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/zscaler.com"
+  },
+  {
+    "id": "qualys",
+    "name": "Qualys",
+    "url": "https://www.qualys.com",
+    "category": "security",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/qualys.com"
+  },
+  {
+    "id": "tenable",
+    "name": "Tenable",
+    "url": "https://www.tenable.com",
+    "category": "security",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/tenable.com"
+  },
+  {
+    "id": "rapid7",
+    "name": "Rapid7",
+    "url": "https://www.rapid7.com",
+    "category": "security",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/rapid7.com"
+  },
+  {
+    "id": "veracode",
+    "name": "Veracode",
+    "url": "https://www.veracode.com",
+    "category": "security",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/veracode.com"
+  },
+  {
+    "id": "checkmarx",
+    "name": "Checkmarx",
+    "url": "https://checkmarx.com",
+    "category": "security",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/checkmarx.com"
+  },
+  {
+    "id": "lacework",
+    "name": "Lacework",
+    "url": "https://www.lacework.com",
+    "category": "security",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/lacework.com"
+  },
+  {
+    "id": "wiz",
+    "name": "Wiz",
+    "url": "https://www.wiz.io",
+    "category": "security",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/wiz.io"
+  },
+  {
+    "id": "orca-security",
+    "name": "Orca Security",
+    "url": "https://orca.security",
+    "category": "security",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/orca.security"
+  },
+  {
+    "id": "google-ai",
+    "name": "Google AI",
+    "url": "https://ai.google",
+    "category": "ai",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/ai.google"
+  },
+  {
+    "id": "deepmind",
+    "name": "Google DeepMind",
+    "url": "https://deepmind.google",
+    "category": "ai",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/deepmind.google"
+  },
+  {
+    "id": "meta-ai",
+    "name": "Meta AI",
+    "url": "https://ai.meta.com",
+    "category": "ai",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/ai.meta.com"
+  },
+  {
+    "id": "xai",
+    "name": "xAI (Grok)",
+    "url": "https://x.ai",
+    "category": "ai",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/x.ai"
+  },
+  {
+    "id": "character-ai",
+    "name": "Character.AI",
+    "url": "https://character.ai",
+    "category": "ai",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/character.ai"
+  },
+  {
+    "id": "claude-ai",
+    "name": "Claude",
+    "url": "https://claude.ai",
+    "category": "ai",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/claude.ai"
+  },
+  {
+    "id": "chatgpt",
+    "name": "ChatGPT",
+    "url": "https://chat.openai.com",
+    "category": "ai",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/chat.openai.com"
+  },
+  {
+    "id": "cursor",
+    "name": "Cursor",
+    "url": "https://www.cursor.com",
+    "category": "ai",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/cursor.com"
+  },
+  {
+    "id": "tabnine",
+    "name": "Tabnine",
+    "url": "https://www.tabnine.com",
+    "category": "ai",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/tabnine.com"
+  },
+  {
+    "id": "codeium",
+    "name": "Codeium",
+    "url": "https://codeium.com",
+    "category": "ai",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/codeium.com"
+  },
+  {
+    "id": "sourcegraph",
+    "name": "Sourcegraph Cody",
+    "url": "https://sourcegraph.com/cody",
+    "category": "ai",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/sourcegraph.com"
+  },
+  {
+    "id": "kite-ai",
+    "name": "Kite",
+    "url": "https://www.kite.com",
+    "category": "ai",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/kite.com"
+  },
+  {
+    "id": "mintlify",
+    "name": "Mintlify",
+    "url": "https://mintlify.com",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/mintlify.com"
+  },
+  {
+    "id": "docusaurus",
+    "name": "Docusaurus",
+    "url": "https://docusaurus.io",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/docusaurus.io"
+  },
+  {
+    "id": "readme",
+    "name": "ReadMe",
+    "url": "https://readme.com",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/readme.com"
+  },
+  {
+    "id": "gitbook",
+    "name": "GitBook",
+    "url": "https://www.gitbook.com",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/gitbook.com"
+  },
+  {
+    "id": "shippo",
+    "name": "Shippo",
+    "url": "https://goshippo.com",
+    "category": "logistics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/goshippo.com"
+  },
+  {
+    "id": "easypost",
+    "name": "EasyPost",
+    "url": "https://www.easypost.com",
+    "category": "logistics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/easypost.com"
+  },
+  {
+    "id": "shipbob",
+    "name": "ShipBob",
+    "url": "https://www.shipbob.com",
+    "category": "logistics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/shipbob.com"
+  },
+  {
+    "id": "shipstation",
+    "name": "ShipStation",
+    "url": "https://www.shipstation.com",
+    "category": "logistics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/shipstation.com"
+  },
+  {
+    "id": "fedex",
+    "name": "FedEx API",
+    "url": "https://developer.fedex.com",
+    "category": "logistics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/developer.fedex.com"
+  },
+  {
+    "id": "ups",
+    "name": "UPS Developer",
+    "url": "https://developer.ups.com",
+    "category": "logistics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/developer.ups.com"
+  },
+  {
+    "id": "usps",
+    "name": "USPS Web Tools",
+    "url": "https://www.usps.com",
+    "category": "logistics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/usps.com"
+  },
+  {
+    "id": "dhl",
+    "name": "DHL API",
+    "url": "https://developer.dhl.com",
+    "category": "logistics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/developer.dhl.com"
+  },
+  {
+    "id": "wordpress-vip",
+    "name": "WordPress VIP",
+    "url": "https://wpvip.com",
+    "category": "cms",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/wpvip.com"
+  },
+  {
+    "id": "builder-io",
+    "name": "Builder.io",
+    "url": "https://www.builder.io",
+    "category": "cms",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/builder.io"
+  },
+  {
+    "id": "directus",
+    "name": "Directus",
+    "url": "https://directus.io",
+    "category": "cms",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/directus.io"
+  },
+  {
+    "id": "strapi",
+    "name": "Strapi",
+    "url": "https://strapi.io",
+    "category": "cms",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/strapi.io"
+  },
+  {
+    "id": "keystonejs",
+    "name": "KeystoneJS",
+    "url": "https://keystonejs.com",
+    "category": "cms",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/keystonejs.com"
+  },
+  {
+    "id": "payload-cms",
+    "name": "Payload CMS",
+    "url": "https://payloadcms.com",
+    "category": "cms",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/payloadcms.com"
+  },
+  {
+    "id": "obsidian",
+    "name": "Obsidian",
+    "url": "https://obsidian.md",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/obsidian.md"
+  },
+  {
+    "id": "roam",
+    "name": "Roam Research",
+    "url": "https://roamresearch.com",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/roamresearch.com"
+  },
+  {
+    "id": "logseq",
+    "name": "Logseq",
+    "url": "https://logseq.com",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/logseq.com"
+  },
+  {
+    "id": "craft",
+    "name": "Craft Docs",
+    "url": "https://www.craft.do",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/craft.do"
+  },
+  {
+    "id": "bear-app",
+    "name": "Bear",
+    "url": "https://bear.app",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/bear.app"
+  },
+  {
+    "id": "anytype",
+    "name": "Anytype",
+    "url": "https://anytype.io",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/anytype.io"
+  },
+  {
+    "id": "fibery",
+    "name": "Fibery",
+    "url": "https://fibery.io",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/fibery.io"
+  },
+  {
+    "id": "height-app",
+    "name": "Height",
+    "url": "https://height.app",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/height.app"
+  },
+  {
+    "id": "plane-so",
+    "name": "Plane",
+    "url": "https://plane.so",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/plane.so"
+  },
+  {
+    "id": "shortcut",
+    "name": "Shortcut",
+    "url": "https://www.shortcut.com",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/shortcut.com"
+  },
+  {
+    "id": "youtrack",
+    "name": "YouTrack",
+    "url": "https://www.jetbrains.com/youtrack",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/jetbrains.com"
+  },
+  {
+    "id": "zenhub",
+    "name": "ZenHub",
+    "url": "https://www.zenhub.com",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/zenhub.com"
+  },
+  {
+    "id": "clubhouse",
+    "name": "Productboard",
+    "url": "https://www.productboard.com",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/productboard.com"
+  },
+  {
+    "id": "launchnotes",
+    "name": "LaunchNotes",
+    "url": "https://www.launchnotes.com",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/launchnotes.com"
+  },
+  {
+    "id": "canny",
+    "name": "Canny",
+    "url": "https://canny.io",
+    "category": "support",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/canny.io"
+  },
+  {
+    "id": "pendo",
+    "name": "Pendo",
+    "url": "https://www.pendo.io",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/pendo.io"
+  },
+  {
+    "id": "appcues",
+    "name": "Appcues",
+    "url": "https://www.appcues.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/appcues.com"
+  },
+  {
+    "id": "chameleon-so",
+    "name": "Chameleon",
+    "url": "https://www.chameleon.so",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/chameleon.so"
+  },
+  {
+    "id": "userflow",
+    "name": "Userflow",
+    "url": "https://userflow.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/userflow.com"
+  },
+  {
+    "id": "product-fruits",
+    "name": "Product Fruits",
+    "url": "https://productfruits.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/productfruits.com"
+  },
+  {
+    "id": "intro-js",
+    "name": "Intro.js",
+    "url": "https://introjs.com",
+    "category": "developer",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/introjs.com"
+  },
+  {
+    "id": "cloudflare-workers",
+    "name": "Cloudflare Workers",
+    "url": "https://workers.cloudflare.com",
+    "category": "cloud",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/workers.cloudflare.com"
+  },
+  {
+    "id": "deno-deploy",
+    "name": "Deno Deploy",
+    "url": "https://deno.com/deploy",
+    "category": "cloud",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/deno.com"
+  },
+  {
+    "id": "snowflake",
+    "name": "Snowflake",
+    "url": "https://www.snowflake.com",
+    "category": "analytics",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/snowflake.com"
+  },
+  {
+    "id": "databricks",
+    "name": "Databricks",
+    "url": "https://www.databricks.com",
+    "category": "analytics",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/databricks.com"
+  },
+  {
+    "id": "dbt-cloud",
+    "name": "dbt Cloud",
+    "url": "https://www.getdbt.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/getdbt.com"
+  },
+  {
+    "id": "fivetran",
+    "name": "Fivetran",
+    "url": "https://www.fivetran.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/fivetran.com"
+  },
+  {
+    "id": "stitch",
+    "name": "Stitch",
+    "url": "https://www.stitchdata.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/stitchdata.com"
+  },
+  {
+    "id": "airbyte",
+    "name": "Airbyte",
+    "url": "https://airbyte.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/airbyte.com"
+  },
+  {
+    "id": "hightouch",
+    "name": "Hightouch",
+    "url": "https://hightouch.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/hightouch.com"
+  },
+  {
+    "id": "census",
+    "name": "Census",
+    "url": "https://www.getcensus.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/getcensus.com"
+  },
+  {
+    "id": "metabase",
+    "name": "Metabase",
+    "url": "https://www.metabase.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/metabase.com"
+  },
+  {
+    "id": "tableau",
+    "name": "Tableau",
+    "url": "https://www.tableau.com",
+    "category": "analytics",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/tableau.com"
+  },
+  {
+    "id": "power-bi",
+    "name": "Power BI",
+    "url": "https://powerbi.microsoft.com",
+    "category": "analytics",
+    "tier": 1,
+    "logo_url": "https://logo.clearbit.com/powerbi.microsoft.com"
+  },
+  {
+    "id": "mode",
+    "name": "Mode Analytics",
+    "url": "https://mode.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/mode.com"
+  },
+  {
+    "id": "hex",
+    "name": "Hex",
+    "url": "https://hex.tech",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/hex.tech"
+  },
+  {
+    "id": "observable",
+    "name": "Observable",
+    "url": "https://observablehq.com",
+    "category": "analytics",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/observablehq.com"
+  },
+  {
+    "id": "rabbitmq",
+    "name": "RabbitMQ",
+    "url": "https://www.rabbitmq.com",
+    "category": "messaging",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/rabbitmq.com"
+  },
+  {
+    "id": "kafka",
+    "name": "Apache Kafka",
+    "url": "https://kafka.apache.org",
+    "category": "messaging",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/kafka.apache.org"
+  },
+  {
+    "id": "confluent",
+    "name": "Confluent",
+    "url": "https://www.confluent.io",
+    "category": "messaging",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/confluent.io"
+  },
+  {
+    "id": "nats",
+    "name": "NATS",
+    "url": "https://nats.io",
+    "category": "messaging",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/nats.io"
+  },
+  {
+    "id": "inngest",
+    "name": "Inngest",
+    "url": "https://www.inngest.com",
+    "category": "messaging",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/inngest.com"
+  },
+  {
+    "id": "trigger-dev",
+    "name": "Trigger.dev",
+    "url": "https://trigger.dev",
+    "category": "messaging",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/trigger.dev"
+  },
+  {
+    "id": "temporal",
+    "name": "Temporal",
+    "url": "https://temporal.io",
+    "category": "messaging",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/temporal.io"
+  },
+  {
+    "id": "conductor",
+    "name": "Conductor",
+    "url": "https://conductor.netflix.com",
+    "category": "messaging",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/conductor.netflix.com"
+  },
+  {
+    "id": "dagster",
+    "name": "Dagster",
+    "url": "https://dagster.io",
+    "category": "devops",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/dagster.io"
+  },
+  {
+    "id": "airflow",
+    "name": "Apache Airflow",
+    "url": "https://airflow.apache.org",
+    "category": "devops",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/airflow.apache.org"
+  },
+  {
+    "id": "prefect",
+    "name": "Prefect",
+    "url": "https://www.prefect.io",
+    "category": "devops",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/prefect.io"
+  },
+  {
+    "id": "veriff",
+    "name": "Veriff",
+    "url": "https://www.veriff.com",
+    "category": "security",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/veriff.com"
+  },
+  {
+    "id": "onfido",
+    "name": "Onfido",
+    "url": "https://onfido.com",
+    "category": "security",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/onfido.com"
+  },
+  {
+    "id": "persona",
+    "name": "Persona",
+    "url": "https://withpersona.com",
+    "category": "security",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/withpersona.com"
+  },
+  {
+    "id": "sardine",
+    "name": "Sardine",
+    "url": "https://www.sardine.ai",
+    "category": "security",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/sardine.ai"
+  },
+  {
+    "id": "sift",
+    "name": "Sift",
+    "url": "https://sift.com",
+    "category": "security",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/sift.com"
+  },
+  {
+    "id": "kount",
+    "name": "Kount",
+    "url": "https://kount.com",
+    "category": "security",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/kount.com"
+  },
+  {
+    "id": "signalwire",
+    "name": "SignalWire",
+    "url": "https://signalwire.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/signalwire.com"
+  },
+  {
+    "id": "bandwidth",
+    "name": "Bandwidth",
+    "url": "https://www.bandwidth.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/bandwidth.com"
+  },
+  {
+    "id": "telnyx",
+    "name": "Telnyx",
+    "url": "https://telnyx.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/telnyx.com"
+  },
+  {
+    "id": "plivo",
+    "name": "Plivo",
+    "url": "https://www.plivo.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/plivo.com"
+  },
+  {
+    "id": "sinch",
+    "name": "Sinch",
+    "url": "https://www.sinch.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/sinch.com"
+  },
+  {
+    "id": "infobip",
+    "name": "Infobip",
+    "url": "https://www.infobip.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/infobip.com"
+  },
+  {
+    "id": "bird-cx",
+    "name": "Bird (MessageBird)",
+    "url": "https://bird.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/bird.com"
+  },
+  {
+    "id": "clicksend",
+    "name": "ClickSend",
+    "url": "https://www.clicksend.com",
+    "category": "communications",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/clicksend.com"
+  },
+  {
+    "id": "attio",
+    "name": "Attio",
+    "url": "https://attio.com",
+    "category": "crm",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/attio.com"
+  },
+  {
+    "id": "folk",
+    "name": "Folk",
+    "url": "https://www.folk.app",
+    "category": "crm",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/folk.app"
+  },
+  {
+    "id": "affinity",
+    "name": "Affinity",
+    "url": "https://www.affinity.co",
+    "category": "crm",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/affinity.co"
+  },
+  {
+    "id": "clay",
+    "name": "Clay",
+    "url": "https://www.clay.com",
+    "category": "crm",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/clay.com"
+  },
+  {
+    "id": "instantly",
+    "name": "Instantly",
+    "url": "https://instantly.ai",
+    "category": "crm",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/instantly.ai"
+  },
+  {
+    "id": "smartlead",
+    "name": "Smartlead",
+    "url": "https://smartlead.ai",
+    "category": "crm",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/smartlead.ai"
+  },
+  {
+    "id": "lemlist",
+    "name": "Lemlist",
+    "url": "https://lemlist.com",
+    "category": "crm",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/lemlist.com"
+  },
+  {
+    "id": "reply-io",
+    "name": "Reply.io",
+    "url": "https://reply.io",
+    "category": "crm",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/reply.io"
+  },
+  {
+    "id": "salesloft",
+    "name": "Salesloft",
+    "url": "https://www.salesloft.com",
+    "category": "crm",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/salesloft.com"
+  },
+  {
+    "id": "gong",
+    "name": "Gong",
+    "url": "https://www.gong.io",
+    "category": "crm",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/gong.io"
+  },
+  {
+    "id": "chorus",
+    "name": "Chorus.ai",
+    "url": "https://www.chorus.ai",
+    "category": "crm",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/chorus.ai"
+  },
+  {
+    "id": "descript",
+    "name": "Descript",
+    "url": "https://www.descript.com",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/descript.com"
+  },
+  {
+    "id": "riverside",
+    "name": "Riverside.fm",
+    "url": "https://riverside.fm",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/riverside.fm"
+  },
+  {
+    "id": "squadcast",
+    "name": "Squadcast",
+    "url": "https://squadcast.fm",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/squadcast.fm"
+  },
+  {
+    "id": "buzzsprout",
+    "name": "Buzzsprout",
+    "url": "https://www.buzzsprout.com",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/buzzsprout.com"
+  },
+  {
+    "id": "transistor",
+    "name": "Transistor.fm",
+    "url": "https://transistor.fm",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/transistor.fm"
+  },
+  {
+    "id": "simplecast",
+    "name": "Simplecast",
+    "url": "https://www.simplecast.com",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/simplecast.com"
+  },
+  {
+    "id": "captivate",
+    "name": "Captivate",
+    "url": "https://www.captivate.fm",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/captivate.fm"
+  },
+  {
+    "id": "podbean",
+    "name": "Podbean",
+    "url": "https://www.podbean.com",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/podbean.com"
+  },
+  {
+    "id": "castos",
+    "name": "Castos",
+    "url": "https://castos.com",
+    "category": "productivity",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/castos.com"
+  },
+  {
+    "id": "anchor",
+    "name": "Anchor (Spotify)",
+    "url": "https://anchor.fm",
+    "category": "streaming",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/anchor.fm"
+  },
+  {
+    "id": "libsyn",
+    "name": "Libsyn",
+    "url": "https://libsyn.com",
+    "category": "streaming",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/libsyn.com"
+  },
+  {
+    "id": "megaphone",
+    "name": "Megaphone",
+    "url": "https://megaphone.fm",
+    "category": "streaming",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/megaphone.fm"
+  },
+  {
+    "id": "acast",
+    "name": "Acast",
+    "url": "https://www.acast.com",
+    "category": "streaming",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/acast.com"
+  },
+  {
+    "id": "spreaker",
+    "name": "Spreaker",
+    "url": "https://www.spreaker.com",
+    "category": "streaming",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/spreaker.com"
+  },
+  {
+    "id": "audiomack",
+    "name": "Audiomack",
+    "url": "https://audiomack.com",
+    "category": "streaming",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/audiomack.com"
+  },
+  {
+    "id": "soundcloud",
+    "name": "SoundCloud",
+    "url": "https://soundcloud.com",
+    "category": "streaming",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/soundcloud.com"
+  },
+  {
+    "id": "bandcamp",
+    "name": "Bandcamp",
+    "url": "https://bandcamp.com",
+    "category": "streaming",
+    "tier": 2,
+    "logo_url": "https://logo.clearbit.com/bandcamp.com"
   }
 ]
