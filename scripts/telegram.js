@@ -60,6 +60,17 @@ export function buildRecoveryAlert(company, durationMin, responseMs) {
   )
 }
 
+export function buildSpikeAlert(downCount, totalCount) {
+  const pct = Math.round((downCount / totalCount) * 100)
+  return (
+    `⚠️ <b>SENTINEL — SPIKE DETECTED, ALERTS SUPPRESSED</b>\n\n` +
+    `<b>Failures:</b> ${downCount}/${totalCount} (${pct}%)\n` +
+    `<b>Action:</b> Individual alerts suppressed. Data written to Supabase.\n` +
+    `<b>Likely cause:</b> Monitoring infrastructure issue, not genuine mass outage.\n\n` +
+    `Investigate CF Worker or GitHub Actions connectivity before next run.`
+  )
+}
+
 export function buildSSLAlert(company, daysLeft) {
   return (
     `⚠️ <b>SSL EXPIRY WARNING</b>\n\n` +

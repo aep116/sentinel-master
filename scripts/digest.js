@@ -8,20 +8,6 @@ if (!SUPABASE_URL || !SUPABASE_SRK) {
   process.exit(1)
 }
 
-async function query(sql) {
-  const resp = await fetch(`${SUPABASE_URL}/rest/v1/rpc/run_sql`, {
-    method: 'POST',
-    headers: {
-      apikey: SUPABASE_SRK,
-      Authorization: `Bearer ${SUPABASE_SRK}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ query: sql }),
-  })
-  if (!resp.ok) throw new Error(`SQL failed: ${resp.status} ${await resp.text()}`)
-  return resp.json()
-}
-
 async function fetchSupabase(path) {
   const resp = await fetch(`${SUPABASE_URL}/rest/v1/${path}`, {
     headers: {

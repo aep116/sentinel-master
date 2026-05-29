@@ -1,18 +1,26 @@
+import { fileURLToPath } from 'url'
 import pLimit from 'p-limit'
-import { sendTelegram, buildDownAlert, buildRecoveryAlert } from './scripts/telegram.js'
+import { sendTelegram, buildDownAlert, buildRecoveryAlert, buildSpikeAlert } from './scripts/telegram.js'
 
 const SUPABASE_URL = process.env.SUPABASE_URL
 const SUPABASE_SRK = process.env.SUPABASE_SRK
 const RUN_TIER3 = process.env.RUN_TIER3 === 'true'
+// When CF Workers are live (DRY_RUN=false), GA skips Tier 1 — CF owns that interval
+const CF_LIVE = process.env.CLOUDFLARE_DRY_RUN === 'false'
 
-if (!SUPABASE_URL || !SUPABASE_SRK) {
-  console.error('Missing SUPABASE_URL or SUPABASE_SRK env vars')
-  process.exit(1)
+// If >=20% of companies fail simultaneously it's our infrastructure, not the internet
+const SPIKE_THRESHOLD = 0.20
+
+export function detectSpike(results, threshold = SPIKE_THRESHOLD) {
+  if (results.length === 0) return false
+  const downCount = results.filter((r) => r.status === 'down').length
+  return downCount / results.length >= threshold
 }
 
 async function loadCompanies() {
   // Include tier 1 in GitHub Actions run (Cloudflare Worker is DRY_RUN during setup phase)
-  const tiers = RUN_TIER3 ? [1, 2, 3] : [1, 2]
+  const baseTiers = CF_LIVE ? [2] : [1, 2]
+  const tiers = RUN_TIER3 ? [...baseTiers, 3] : baseTiers
   const tierFilter = `tier=in.(${tiers.join(',')})`
   const resp = await fetch(
     `${SUPABASE_URL}/rest/v1/companies?${tierFilter}&active=eq.true&select=id,name,url,tier,consecutive_failures`,
@@ -102,7 +110,11 @@ async function updateConsecutiveFailures(companyId, count) {
 }
 
 async function main() {
-  console.log(`Starting monitoring run. Tiers: ${RUN_TIER3 ? '1,2,3' : '1,2'}`)
+  if (!SUPABASE_URL || !SUPABASE_SRK) {
+    console.error('Missing SUPABASE_URL or SUPABASE_SRK env vars')
+    process.exit(1)
+  }
+  console.log(`Starting monitoring run. CF_LIVE=${CF_LIVE}, RUN_TIER3=${RUN_TIER3}`)
 
   const companies = await loadCompanies()
   console.log(`Loaded ${companies.length} companies`)
@@ -123,6 +135,16 @@ async function main() {
   const upCount = results.filter((r) => r.status === 'up').length
   const downCount = results.filter((r) => r.status === 'down').length
   console.log(`Results: ${upCount} up, ${downCount} down`)
+
+  // Spike guard: >=20% simultaneous failures = our infrastructure, not the internet
+  if (detectSpike(results)) {
+    const pct = Math.round((downCount / results.length) * 100)
+    console.warn(`[SPIKE] ${downCount}/${results.length} (${pct}%) failures — suppressing alerts, writing data`)
+    await sendTelegram(buildSpikeAlert(downCount, results.length))
+    await batchWrite(results)
+    console.log(`Wrote ${results.length} results to Supabase (spike run)`)
+    return
+  }
 
   // Process alerts and update consecutive_failures
   const updateLimit = pLimit(10)
@@ -166,7 +188,10 @@ async function main() {
   console.log(`Wrote ${results.length} results to Supabase`)
 }
 
-main().catch((e) => {
-  console.error('Monitor run failed:', e)
-  process.exit(1)
-})
+const __filename = fileURLToPath(import.meta.url)
+if (process.argv[1] === __filename) {
+  main().catch((e) => {
+    console.error('Monitor run failed:', e)
+    process.exit(1)
+  })
+}
