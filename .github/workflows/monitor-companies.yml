@@ -1,4 +1,4 @@
-﻿name: Monitor Companies
+name: Monitor Companies
 
 on:
   schedule:
@@ -32,4 +32,8 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SRK: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           RUN_TIER3: ${{ env.RUN_TIER3 }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          CLOUDFLARE_DRY_RUN: "true"
+          X_DRY_RUN: "true"
         run: node monitor.js
