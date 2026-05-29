@@ -1,0 +1,35 @@
+﻿name: Monitor Companies
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Determine tiers to run
+        run: |
+          MINUTE=$(date +%M)
+          RUN_TIER3=$([ $(( 10#$MINUTE % 15 )) -eq 0 ] && echo true || echo false)
+          echo "RUN_TIER3=$RUN_TIER3" >> $GITHUB_ENV
+          echo "Running at minute $MINUTE, RUN_TIER3=$RUN_TIER3"
+
+      - name: Run monitoring
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SRK: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          RUN_TIER3: ${{ env.RUN_TIER3 }}
+        run: node monitor.js
