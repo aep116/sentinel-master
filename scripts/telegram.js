@@ -60,14 +60,22 @@ export function buildRecoveryAlert(company, durationMin, responseMs) {
   )
 }
 
-export function buildSpikeAlert(downCount, totalCount) {
+export function buildSpikeAlert(downCount, totalCount, suppressed = true) {
   const pct = Math.round((downCount / totalCount) * 100)
+  if (suppressed) {
+    return (
+      `⚠️ <b>SENTINEL — LIKELY MONITORING INFRA FAULT</b>\n\n` +
+      `<b>Failures:</b> ${downCount}/${totalCount} (${pct}%)\n` +
+      `<b>Action:</b> Per-company alerts suppressed (near-total failure). Data written to Supabase.\n` +
+      `<b>Likely cause:</b> Our probe lost connectivity, not a genuine mass outage.\n\n` +
+      `Investigate CF Worker or GitHub Actions connectivity before next run.`
+    )
+  }
   return (
-    `⚠️ <b>SENTINEL — SPIKE DETECTED, ALERTS SUPPRESSED</b>\n\n` +
+    `🟠 <b>SENTINEL — BROAD OUTAGE DETECTED</b>\n\n` +
     `<b>Failures:</b> ${downCount}/${totalCount} (${pct}%)\n` +
-    `<b>Action:</b> Individual alerts suppressed. Data written to Supabase.\n` +
-    `<b>Likely cause:</b> Monitoring infrastructure issue, not genuine mass outage.\n\n` +
-    `Investigate CF Worker or GitHub Actions connectivity before next run.`
+    `<b>Action:</b> Per-company alerts still firing. Data written to Supabase.\n` +
+    `<b>Likely cause:</b> A shared dependency (cloud region / CDN) appears to be down.`
   )
 }
 

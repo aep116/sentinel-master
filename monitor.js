@@ -9,13 +9,25 @@ const RUN_TIER3 = process.env.RUN_TIER3 === 'true'
 // When CF Workers are live (DRY_RUN=false), GA skips Tier 1 — CF owns that interval
 const CF_LIVE = process.env.CLOUDFLARE_DRY_RUN === 'false'
 
-// If >=20% of companies fail simultaneously it's our infrastructure, not the internet
+// >=20% down = a notable broad event: send a heads-up banner but STILL alert per-company.
+// A real cloud-region/CDN outage lives in the 20-80% band and must not be silenced.
 const SPIKE_THRESHOLD = 0.20
+// >=80% down = almost everything is unreachable from our probe = our own monitoring
+// infrastructure, not a real internet-wide outage. Suppress the per-company alert storm.
+const INFRA_SUPPRESS_THRESHOLD = 0.80
 
 export function detectSpike(results, threshold = SPIKE_THRESHOLD) {
   if (results.length === 0) return false
   const downCount = results.filter((r) => r.status === 'down').length
   return downCount / results.length >= threshold
+}
+
+// Classify a run by the down ratio: 'infra' (>=80% — suppress the per-company storm),
+// 'spike' (>=20% — banner but still alert per-company), or 'normal'.
+export function classifyRun(downRatio) {
+  if (downRatio >= INFRA_SUPPRESS_THRESHOLD) return 'infra'
+  if (downRatio >= SPIKE_THRESHOLD) return 'spike'
+  return 'normal'
 }
 
 // Default "healthy" status codes (mirror of the Tier 1 worker's DEFAULT_OK_CODES).
@@ -82,7 +94,7 @@ async function loadCompanies() {
   const tiers = RUN_TIER3 ? [...baseTiers, 3] : baseTiers
   const tierFilter = `tier=in.(${tiers.join(',')})`
   const resp = await fetch(
-    `${SUPABASE_URL}/rest/v1/companies?${tierFilter}&active=eq.true&select=id,name,url,tier,consecutive_failures,expected_codes,avg_response_ms,checks_count,degraded`,
+    `${SUPABASE_URL}/rest/v1/companies?${tierFilter}&active=eq.true&select=id,name,url,tier,consecutive_failures,expected_codes,avg_response_ms,checks_count,degraded,response_keyword,response_forbidden_keyword`,
     {
       headers: {
         apikey: SUPABASE_SRK,
@@ -108,7 +120,19 @@ export async function pingUrl(company) {
     })
     const responseMs = Date.now() - startTime
     // 2xx/3xx = up; 4xx + 5xx = down (per-company expected_codes can whitelist a 4xx).
-    const isDown = isStatusDown(resp.status, company.expected_codes)
+    let isDown = isStatusDown(resp.status, company.expected_codes)
+    let statusDesc = `HTTP ${resp.status}`
+    // Body validation: a 200 serving a maintenance/login/error page is still down.
+    if (!isDown && (company.response_keyword || company.response_forbidden_keyword)) {
+      const body = await resp.text()
+      if (company.response_keyword && !body.includes(company.response_keyword)) {
+        isDown = true
+        statusDesc = `HTTP ${resp.status} — missing keyword "${company.response_keyword}"`
+      } else if (company.response_forbidden_keyword && body.includes(company.response_forbidden_keyword)) {
+        isDown = true
+        statusDesc = `HTTP ${resp.status} — forbidden keyword "${company.response_forbidden_keyword}"`
+      }
+    }
     return {
       company_id: company.id,
       monitor_id: null,
@@ -116,7 +140,7 @@ export async function pingUrl(company) {
       response_ms: responseMs,
       http_status: resp.status,
       region: 'github-actions',
-      statusDesc: `HTTP ${resp.status}`,
+      statusDesc,
     }
   } catch (e) {
     const responseMs = Date.now() - startTime
@@ -198,14 +222,26 @@ async function main() {
   const downCount = results.filter((r) => r.status === 'down').length
   console.log(`Results: ${upCount} up, ${downCount} down`)
 
-  // Spike guard: >=20% simultaneous failures = our infrastructure, not the internet
-  if (detectSpike(results)) {
-    const pct = Math.round((downCount / results.length) * 100)
-    console.warn(`[SPIKE] ${downCount}/${results.length} (${pct}%) failures — suppressing alerts, writing data`)
-    await sendTelegram(buildSpikeAlert(downCount, results.length))
-    await batchWrite(results)
-    console.log(`Wrote ${results.length} results to Supabase (spike run)`)
+  const downRatio = results.length ? downCount / results.length : 0
+  const pct = Math.round(downRatio * 100)
+
+  // P0-7: persist data BEFORE alerting. Telegram/email can't be unsent; if the write
+  // failed after we paged, the dashboard would show no incident. Write first.
+  await batchWrite(results)
+  console.log(`Wrote ${results.length} results to Supabase`)
+
+  // P0-6: only a near-total failure (>=80%) is treated as our own infrastructure and
+  // suppresses the per-company storm. A 20-80% band is a genuine broad outage —
+  // send a banner AND still fire per-company alerts below.
+  const runClass = classifyRun(downRatio)
+  if (runClass === 'infra') {
+    console.warn(`[INFRA] ${downCount}/${results.length} (${pct}%) down — likely monitoring infra, suppressing per-company alerts`)
+    await sendTelegram(buildSpikeAlert(downCount, results.length, true))
     return
+  }
+  if (runClass === 'spike') {
+    console.warn(`[SPIKE] ${downCount}/${results.length} (${pct}%) down — broad outage, banner + per-company alerts`)
+    await sendTelegram(buildSpikeAlert(downCount, results.length, false))
   }
 
   // Process alerts and update consecutive_failures
@@ -276,10 +312,6 @@ async function main() {
   }
 
   await Promise.all(alertPromises)
-
-  await batchWrite(results)
-  console.log(`Wrote ${results.length} results to Supabase`)
-
   await bulkUpdateStats(statsUpdates)
 }
 

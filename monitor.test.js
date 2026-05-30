@@ -1,7 +1,7 @@
 import { test, before, after } from 'node:test'
 import assert from 'node:assert/strict'
 import http from 'node:http'
-import { detectSpike, isStatusDown, pingUrl, cacheBust, isDegraded, emaUpdate } from './monitor.js'
+import { detectSpike, isStatusDown, pingUrl, cacheBust, isDegraded, emaUpdate, classifyRun } from './monitor.js'
 import { sendEmailAlert } from './scripts/email.js'
 import { shouldAlertSSL, getCertDaysLeft } from './scripts/ssl-check.js'
 import { buildDegradationAlert } from './scripts/telegram.js'
@@ -261,4 +261,35 @@ test('buildDegradationAlert: includes company, current, baseline, pct', () => {
   assert.match(msg, /400ms/)
   assert.match(msg, /100ms/)
   assert.match(msg, /300%/)
+})
+
+// --- P0-6: spike classification (infra-suppress vs broad-outage banner) ---
+
+test('classifyRun: <20% normal, 20-80% spike (still alerts), >=80% infra (suppress)', () => {
+  assert.equal(classifyRun(0.05), 'normal')
+  assert.equal(classifyRun(0.19), 'normal')
+  assert.equal(classifyRun(0.20), 'spike')
+  assert.equal(classifyRun(0.50), 'spike') // real cloud-region outage: NOT suppressed anymore
+  assert.equal(classifyRun(0.79), 'spike')
+  assert.equal(classifyRun(0.80), 'infra')
+  assert.equal(classifyRun(1.0), 'infra')
+})
+
+// --- P0-4: body validation (Tier 2/3); local server body is `status <code>` ---
+
+test('pingUrl body: missing required keyword -> down even on 200', async () => {
+  const r = await pingUrl({ id: 'k1', url: `${base}/200`, response_keyword: 'Operational' })
+  assert.equal(r.status, 'down')
+})
+test('pingUrl body: present required keyword -> up', async () => {
+  const r = await pingUrl({ id: 'k2', url: `${base}/200`, response_keyword: 'status' })
+  assert.equal(r.status, 'up')
+})
+test('pingUrl body: forbidden keyword present -> down', async () => {
+  const r = await pingUrl({ id: 'k3', url: `${base}/200`, response_forbidden_keyword: 'status' })
+  assert.equal(r.status, 'down')
+})
+test('pingUrl body: no keyword config leaves 200 as up', async () => {
+  const r = await pingUrl({ id: 'k4', url: `${base}/200` })
+  assert.equal(r.status, 'up')
 })
