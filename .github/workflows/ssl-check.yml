@@ -1,0 +1,31 @@
+name: SSL Expiry Check
+
+on:
+  schedule:
+    - cron: '0 12 * * *'   # daily, 7:00 AM Eastern (noon UTC)
+  workflow_dispatch:
+
+jobs:
+  ssl-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Run SSL expiry check
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SRK: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          FRONTEND_ALERT_URL: ${{ secrets.FRONTEND_ALERT_URL }}
+          ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
+        run: node scripts/ssl-check.js

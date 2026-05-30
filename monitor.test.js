@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 import http from 'node:http'
 import { detectSpike, isStatusDown, pingUrl, cacheBust } from './monitor.js'
 import { sendEmailAlert } from './scripts/email.js'
+import { shouldAlertSSL, getCertDaysLeft } from './scripts/ssl-check.js'
 
 function makeResults(upCount, downCount) {
   return [
@@ -211,4 +212,24 @@ test('sendEmailAlert: returns false (never throws) when unconfigured', async () 
   delete process.env.ALERT_EMAIL
   const ok = await sendEmailAlert({ type: 'outage', company_or_site: 'X' })
   assert.equal(ok, false)
+})
+
+// --- C2: SSL expiry check (P0-11) ---
+
+test('shouldAlertSSL: fires at threshold days (30/14/7/3/1) and when expired', () => {
+  for (const d of [30, 14, 7, 3, 1, 0, -5]) assert.equal(shouldAlertSSL(d), true, `days=${d}`)
+})
+test('shouldAlertSSL: silent on non-threshold days and unknown', () => {
+  for (const d of [45, 20, 8, 2]) assert.equal(shouldAlertSSL(d), false, `days=${d}`)
+  assert.equal(shouldAlertSSL(null), false)
+  assert.equal(shouldAlertSSL(undefined), false)
+})
+test('getCertDaysLeft real: example.com returns a positive day count', { timeout: 20000 }, async () => {
+  const days = await getCertDaysLeft('example.com')
+  assert.equal(typeof days, 'number')
+  assert.ok(days > 0, `expected >0, got ${days}`)
+})
+test('getCertDaysLeft: unreachable host resolves null (never throws)', { timeout: 20000 }, async () => {
+  const days = await getCertDaysLeft('does-not-exist.invalid', 3000)
+  assert.equal(days, null)
 })
