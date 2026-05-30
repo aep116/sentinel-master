@@ -1,6 +1,7 @@
-import { test } from 'node:test'
+import { test, before, after } from 'node:test'
 import assert from 'node:assert/strict'
-import { detectSpike } from './monitor.js'
+import http from 'node:http'
+import { detectSpike, isStatusDown, pingUrl } from './monitor.js'
 
 function makeResults(upCount, downCount) {
   return [
@@ -91,4 +92,79 @@ test('regression: mixed results preserve status values', () => {
   assert.equal(results.filter(r => r.status === 'up').length, 490)
   assert.equal(results.filter(r => r.status === 'down').length, 10)
   assert.equal(detectSpike(results), false)
+})
+
+// --- P0-3: 4xx-as-UP fix — isStatusDown (deterministic) ---
+
+test('isStatusDown: 200 OK is up', () => { assert.equal(isStatusDown(200), false) })
+test('isStatusDown: 301/302/304 redirects are up', () => {
+  assert.equal(isStatusDown(301), false)
+  assert.equal(isStatusDown(302), false)
+  assert.equal(isStatusDown(304), false)
+})
+test('isStatusDown: 401 auth wall is DOWN', () => { assert.equal(isStatusDown(401), true) })
+test('isStatusDown: 403 WAF/bot-block is DOWN', () => { assert.equal(isStatusDown(403), true) })
+test('isStatusDown: 404 is DOWN', () => { assert.equal(isStatusDown(404), true) })
+test('isStatusDown: 429 throttle is DOWN', () => { assert.equal(isStatusDown(429), true) })
+test('isStatusDown: 500/503 are DOWN', () => {
+  assert.equal(isStatusDown(500), true)
+  assert.equal(isStatusDown(503), true)
+})
+test('isStatusDown: expected_codes whitelist overrides default (403 -> up)', () => {
+  assert.equal(isStatusDown(403, [403]), false)
+})
+test('isStatusDown: expected_codes makes a non-listed 200 DOWN', () => {
+  assert.equal(isStatusDown(200, [201, 204]), true)
+})
+test('isStatusDown: empty expected_codes falls back to default policy', () => {
+  assert.equal(isStatusDown(403, []), true)
+  assert.equal(isStatusDown(200, []), false)
+})
+
+// --- P0-3: real-URL integration ---
+// Deterministic: a local HTTP server returns the status code in the path (real TCP/HTTP
+// round-trip via pingUrl's fetch), plus one genuine-internet smoke test against example.com.
+
+let server
+let base
+before(async () => {
+  server = http.createServer((req, res) => {
+    const code = Number.parseInt(req.url.replace('/', ''), 10) || 200
+    res.writeHead(code, { 'Content-Type': 'text/plain' })
+    res.end(`status ${code}`)
+  })
+  await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve))
+  base = `http://127.0.0.1:${server.address().port}`
+})
+after(() => { if (server) server.close() })
+
+test('pingUrl real: example.com (200) -> up', { timeout: 20000 }, async () => {
+  const r = await pingUrl({ id: 'ex', url: 'https://example.com' })
+  assert.equal(r.status, 'up')
+})
+test('pingUrl real(local): 200 -> up, http_status recorded', async () => {
+  const r = await pingUrl({ id: 't200', url: `${base}/200` })
+  assert.equal(r.status, 'up')
+  assert.equal(r.http_status, 200)
+})
+test('pingUrl real(local): 403 WAF/bot-block -> down (was a false negative before fix)', async () => {
+  const r = await pingUrl({ id: 't403', url: `${base}/403` })
+  assert.equal(r.status, 'down')
+  assert.equal(r.http_status, 403)
+})
+test('pingUrl real(local): 404 -> down', async () => {
+  const r = await pingUrl({ id: 't404', url: `${base}/404` })
+  assert.equal(r.status, 'down')
+})
+test('pingUrl real(local): 429 throttle -> down', async () => {
+  const r = await pingUrl({ id: 't429', url: `${base}/429` })
+  assert.equal(r.status, 'down')
+})
+test('pingUrl real(local): 500 -> down', async () => {
+  const r = await pingUrl({ id: 't500', url: `${base}/500` })
+  assert.equal(r.status, 'down')
+})
+test('pingUrl real(local): expected_codes [403] override makes 403 -> up', async () => {
+  const r = await pingUrl({ id: 't403ok', url: `${base}/403`, expected_codes: [403] })
+  assert.equal(r.status, 'up')
 })

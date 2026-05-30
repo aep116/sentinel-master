@@ -17,13 +17,27 @@ export function detectSpike(results, threshold = SPIKE_THRESHOLD) {
   return downCount / results.length >= threshold
 }
 
+// Default "healthy" status codes (mirror of the Tier 1 worker's DEFAULT_OK_CODES).
+// 2xx success + 3xx redirect. Anything else — including 4xx (401 auth wall, 403
+// WAF/bot-block, 404, 429 throttle) and 5xx — is DOWN. A genuinely-down site that
+// returns a 4xx (crashed app routing to 404, WAF blocking everyone) is now caught.
+// Sites that legitimately return a 4xx whitelist it via companies.expected_codes.
+export const OK_CODES = new Set([200, 201, 202, 203, 204, 206, 301, 302, 303, 304, 307, 308])
+
+export function isStatusDown(status, expectedCodes) {
+  if (Array.isArray(expectedCodes) && expectedCodes.length > 0) {
+    return !expectedCodes.includes(status)
+  }
+  return !OK_CODES.has(status)
+}
+
 async function loadCompanies() {
   // Include tier 1 in GitHub Actions run (Cloudflare Worker is DRY_RUN during setup phase)
   const baseTiers = CF_LIVE ? [2] : [1, 2]
   const tiers = RUN_TIER3 ? [...baseTiers, 3] : baseTiers
   const tierFilter = `tier=in.(${tiers.join(',')})`
   const resp = await fetch(
-    `${SUPABASE_URL}/rest/v1/companies?${tierFilter}&active=eq.true&select=id,name,url,tier,consecutive_failures`,
+    `${SUPABASE_URL}/rest/v1/companies?${tierFilter}&active=eq.true&select=id,name,url,tier,consecutive_failures,expected_codes`,
     {
       headers: {
         apikey: SUPABASE_SRK,
@@ -35,7 +49,7 @@ async function loadCompanies() {
   return resp.json()
 }
 
-async function pingUrl(company) {
+export async function pingUrl(company) {
   const startTime = Date.now()
   try {
     const resp = await fetch(company.url, {
@@ -44,9 +58,8 @@ async function pingUrl(company) {
       headers: { 'user-agent': 'Sentinel/1.0 (+https://sentinel.watch)' },
     })
     const responseMs = Date.now() - startTime
-    // Only 5xx responses count as genuine outages.
-    // 4xx (403 bot-blocking, 404 wrong path, 429 rate-limit) = site is reachable, not down.
-    const isDown = resp.status >= 500
+    // 2xx/3xx = up; 4xx + 5xx = down (per-company expected_codes can whitelist a 4xx).
+    const isDown = isStatusDown(resp.status, company.expected_codes)
     return {
       company_id: company.id,
       monitor_id: null,
