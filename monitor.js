@@ -8,6 +8,9 @@ const SUPABASE_SRK = process.env.SUPABASE_SRK
 const RUN_TIER3 = process.env.RUN_TIER3 === 'true'
 // When CF Workers are live (DRY_RUN=false), GA skips Tier 1 — CF owns that interval
 const CF_LIVE = process.env.CLOUDFLARE_DRY_RUN === 'false'
+// P0-12: which probe origin this run came from. Overridable so a second runner region
+// can stamp its own label, enabling cross-region quorum and per-region liveness.
+const MONITOR_REGION = process.env.MONITOR_REGION || 'github-actions'
 
 // >=20% down = a notable broad event: send a heads-up banner but STILL alert per-company.
 // A real cloud-region/CDN outage lives in the 20-80% band and must not be silenced.
@@ -151,6 +154,16 @@ async function touchIncident(id, nowISO) {
   }).catch((e) => console.warn(`touchIncident failed: ${e.message}`))
 }
 
+// P0-12: stamp this run's liveness. An external watchdog polls /api/health and pages if
+// last_run_at goes stale — catching a deleted/disabled cron, which GitHub won't alert on.
+async function writeHeartbeat(source) {
+  return fetch(`${SUPABASE_URL}/rest/v1/monitor_heartbeat?on_conflict=source`, {
+    method: 'POST',
+    headers: { ...INCIDENT_HEADERS(), Prefer: 'resolution=merge-duplicates,return=minimal' },
+    body: JSON.stringify({ source, last_run_at: new Date().toISOString() }),
+  }).catch((e) => console.warn(`heartbeat failed: ${e.message}`))
+}
+
 async function loadCompanies() {
   // Include tier 1 in GitHub Actions run (Cloudflare Worker is DRY_RUN during setup phase)
   const baseTiers = CF_LIVE ? [2] : [1, 2]
@@ -202,7 +215,7 @@ export async function pingUrl(company) {
       status: isDown ? 'down' : 'up',
       response_ms: responseMs,
       http_status: resp.status,
-      region: 'github-actions',
+      region: MONITOR_REGION,
       statusDesc,
     }
   } catch (e) {
@@ -214,7 +227,7 @@ export async function pingUrl(company) {
       status: 'down',
       response_ms: responseMs,
       http_status: null,
-      region: 'github-actions',
+      region: MONITOR_REGION,
       statusDesc: isTimeout ? 'Timeout after 10s' : `Connection error: ${e.message}`,
     }
   }
@@ -292,6 +305,7 @@ async function main() {
   // failed after we paged, the dashboard would show no incident. Write first.
   await batchWrite(results)
   console.log(`Wrote ${results.length} results to Supabase`)
+  await writeHeartbeat(MONITOR_REGION) // P0-12: liveness, recorded on every run
 
   // P0-6: only a near-total failure (>=80%) is treated as our own infrastructure and
   // suppresses the per-company storm. A 20-80% band is a genuine broad outage —

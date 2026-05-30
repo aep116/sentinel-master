@@ -321,3 +321,10 @@ test('decideIncidentAction: up with no open incident -> none', () => {
 test('decideIncidentAction: single blip (down=false, not yet at threshold) -> none', () => {
   assert.equal(decideIncidentAction({ down: false, up: false, openIncident: null, now: 1 }), 'none')
 })
+
+// --- P0-12: region stamping (quorum/liveness prep) ---
+
+test('pingUrl stamps the monitor region (default github-actions)', async () => {
+  const r = await pingUrl({ id: 'rg', url: `${base}/200` })
+  assert.equal(r.region, 'github-actions')
+})
