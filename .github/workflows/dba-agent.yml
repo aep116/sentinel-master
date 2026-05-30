@@ -1,0 +1,33 @@
+name: DBA Agent — Nightly Maintenance
+
+on:
+  schedule:
+    - cron: '0 3 * * *'   # 3am UTC nightly
+  workflow_dispatch:
+
+jobs:
+  dba:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+      - name: Signal start to healthchecks.io
+        run: curl -fsS --retry 3 https://hc-ping.com/38c5f8ef-fd91-43c5-b1fb-996b301fcdb7/start || true
+      - name: Run DBA Agent
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SRK: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+          R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+        run: node scripts/dba-agent.mjs
+      - name: Signal success to healthchecks.io
+        if: success()
+        run: curl -fsS --retry 3 https://hc-ping.com/38c5f8ef-fd91-43c5-b1fb-996b301fcdb7 || true

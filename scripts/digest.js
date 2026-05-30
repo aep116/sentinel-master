@@ -92,7 +92,7 @@ async function main() {
     msg += '\n'
   }
 
-  msg += `All data → ${process.env.SITE_URL || 'https://sentinel.watch'}/leaderboard`
+  msg += `All data → ${process.env.SITE_URL || 'https://outageiq.io'}/leaderboard`
 
   console.log('Sending daily digest...')
   await sendTelegram(msg)

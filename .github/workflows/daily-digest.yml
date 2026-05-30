@@ -26,5 +26,5 @@ jobs:
           SUPABASE_SRK: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          SITE_URL: "https://sentinel.watch"
+          SITE_URL: "https://outageiq.io"
         run: node scripts/digest.js
