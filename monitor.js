@@ -1,6 +1,6 @@
 import { fileURLToPath } from 'url'
 import pLimit from 'p-limit'
-import { sendTelegram, buildDownAlert, buildRecoveryAlert, buildSpikeAlert } from './scripts/telegram.js'
+import { sendTelegram, buildDownAlert, buildRecoveryAlert, buildSpikeAlert, buildDegradationAlert } from './scripts/telegram.js'
 import { sendEmailAlert } from './scripts/email.js'
 
 const SUPABASE_URL = process.env.SUPABASE_URL
@@ -44,13 +44,45 @@ export function cacheBust(target) {
   }
 }
 
+// Response time is "degraded" when it exceeds the EMA baseline by this factor (200%).
+// Suppressed until a monitor has WARMUP_CHECKS of history to avoid noise on new monitors.
+export const DEGRADATION_FACTOR = 2
+export const WARMUP_CHECKS = 20
+
+export function isDegraded(responseMs, baselineMs, checksCount, factor = DEGRADATION_FACTOR) {
+  if (baselineMs == null || checksCount == null || checksCount <= WARMUP_CHECKS) return false
+  return responseMs > baselineMs * factor
+}
+
+export function emaUpdate(baselineMs, responseMs) {
+  return baselineMs == null ? responseMs : Math.round(baselineMs * 0.98 + responseMs * 0.02)
+}
+
+// One RPC call updates avg_response_ms / checks_count / degraded for every up company
+// (avoids 500+ per-row PATCHes inside the 4-minute GitHub Actions budget).
+async function bulkUpdateStats(updates) {
+  if (updates.length === 0) return
+  const resp = await fetch(`${SUPABASE_URL}/rest/v1/rpc/bulk_update_company_stats`, {
+    method: 'POST',
+    headers: {
+      apikey: SUPABASE_SRK,
+      Authorization: `Bearer ${SUPABASE_SRK}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ updates }),
+  })
+  if (!resp.ok) {
+    console.warn(`bulk stats update failed: ${resp.status} ${await resp.text()}`)
+  }
+}
+
 async function loadCompanies() {
   // Include tier 1 in GitHub Actions run (Cloudflare Worker is DRY_RUN during setup phase)
   const baseTiers = CF_LIVE ? [2] : [1, 2]
   const tiers = RUN_TIER3 ? [...baseTiers, 3] : baseTiers
   const tierFilter = `tier=in.(${tiers.join(',')})`
   const resp = await fetch(
-    `${SUPABASE_URL}/rest/v1/companies?${tierFilter}&active=eq.true&select=id,name,url,tier,consecutive_failures,expected_codes`,
+    `${SUPABASE_URL}/rest/v1/companies?${tierFilter}&active=eq.true&select=id,name,url,tier,consecutive_failures,expected_codes,avg_response_ms,checks_count,degraded`,
     {
       headers: {
         apikey: SUPABASE_SRK,
@@ -179,6 +211,7 @@ async function main() {
   // Process alerts and update consecutive_failures
   const updateLimit = pLimit(10)
   const alertPromises = []
+  const statsUpdates = []
 
   for (const result of results) {
     const company = companyMap[result.company_id]
@@ -216,12 +249,38 @@ async function main() {
         sendEmailAlert({ type: 'recovery', company_or_site: company.name, url: company.url, duration_min: durationMin })
       )
     }
+
+    // EMA baseline maintenance + response-time degradation (up results only)
+    if (result.status === 'up') {
+      const baseline = company.avg_response_ms ?? null
+      const checks = company.checks_count ?? 0
+      let degraded = company.degraded ?? false
+      if (isDegraded(result.response_ms, baseline, checks) && !degraded) {
+        const pctAbove = Math.round((result.response_ms / baseline - 1) * 100)
+        console.log(`[DEGRADED] ${company.name} ${result.response_ms}ms vs ${baseline}ms (${pctAbove}% above)`)
+        alertPromises.push(sendTelegram(buildDegradationAlert(company, result.response_ms, baseline, pctAbove)))
+        alertPromises.push(
+          sendEmailAlert({ type: 'degradation', company_or_site: company.name, url: company.url, response_ms: result.response_ms, baseline_ms: baseline, pct_above: pctAbove })
+        )
+        degraded = true
+      } else if (degraded && baseline != null && result.response_ms < baseline * 1.5) {
+        degraded = false // hysteresis: clear once back near baseline
+      }
+      statsUpdates.push({
+        id: result.company_id,
+        avg_response_ms: emaUpdate(baseline, result.response_ms),
+        checks_count: checks + 1,
+        degraded,
+      })
+    }
   }
 
   await Promise.all(alertPromises)
 
   await batchWrite(results)
   console.log(`Wrote ${results.length} results to Supabase`)
+
+  await bulkUpdateStats(statsUpdates)
 }
 
 const __filename = fileURLToPath(import.meta.url)

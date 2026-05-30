@@ -1,9 +1,10 @@
 import { test, before, after } from 'node:test'
 import assert from 'node:assert/strict'
 import http from 'node:http'
-import { detectSpike, isStatusDown, pingUrl, cacheBust } from './monitor.js'
+import { detectSpike, isStatusDown, pingUrl, cacheBust, isDegraded, emaUpdate } from './monitor.js'
 import { sendEmailAlert } from './scripts/email.js'
 import { shouldAlertSSL, getCertDaysLeft } from './scripts/ssl-check.js'
+import { buildDegradationAlert } from './scripts/telegram.js'
 
 function makeResults(upCount, downCount) {
   return [
@@ -232,4 +233,32 @@ test('getCertDaysLeft real: example.com returns a positive day count', { timeout
 test('getCertDaysLeft: unreachable host resolves null (never throws)', { timeout: 20000 }, async () => {
   const days = await getCertDaysLeft('does-not-exist.invalid', 3000)
   assert.equal(days, null)
+})
+
+// --- C3: response-time degradation (P0-10) ---
+
+test('isDegraded: >200% of baseline after warmup is degraded', () => {
+  assert.equal(isDegraded(250, 100, 30), true)
+  assert.equal(isDegraded(201, 100, 30), true)
+})
+test('isDegraded: within 200% is not degraded', () => {
+  assert.equal(isDegraded(150, 100, 30), false)
+  assert.equal(isDegraded(200, 100, 30), false)
+})
+test('isDegraded: suppressed during warmup (<=20 checks) and without a baseline', () => {
+  assert.equal(isDegraded(500, 100, 10), false) // warmup
+  assert.equal(isDegraded(500, 100, 20), false) // exactly at warmup boundary
+  assert.equal(isDegraded(500, null, 50), false) // no baseline yet
+})
+test('emaUpdate: seeds with first value, then 98/2 weighted', () => {
+  assert.equal(emaUpdate(null, 200), 200)
+  assert.equal(emaUpdate(100, 200), 102) // round(100*0.98 + 200*0.02)
+})
+test('buildDegradationAlert: includes company, current, baseline, pct', () => {
+  const msg = buildDegradationAlert({ name: 'Acme', url: 'https://acme.test' }, 400, 100, 300)
+  assert.match(msg, /DEGRADED/)
+  assert.match(msg, /Acme/)
+  assert.match(msg, /400ms/)
+  assert.match(msg, /100ms/)
+  assert.match(msg, /300%/)
 })

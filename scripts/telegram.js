@@ -71,6 +71,17 @@ export function buildSpikeAlert(downCount, totalCount) {
   )
 }
 
+export function buildDegradationAlert(company, responseMs, baselineMs, pctAbove) {
+  return (
+    `🟡 <b>SENTINEL — RESPONSE TIME DEGRADED</b>\n\n` +
+    `<b>Company:</b> ${company.name}\n` +
+    `<b>URL:</b> ${company.url}\n` +
+    `<b>Current:</b> ${responseMs}ms\n` +
+    `<b>Baseline:</b> ${baselineMs}ms (${pctAbove}% above normal)\n\n` +
+    `Monitoring for incident development.`
+  )
+}
+
 export function buildSSLAlert(company, daysLeft) {
   return (
     `⚠️ <b>SSL EXPIRY WARNING</b>\n\n` +
