@@ -1,7 +1,7 @@
 import { test, before, after } from 'node:test'
 import assert from 'node:assert/strict'
 import http from 'node:http'
-import { detectSpike, isStatusDown, pingUrl } from './monitor.js'
+import { detectSpike, isStatusDown, pingUrl, cacheBust } from './monitor.js'
 
 function makeResults(upCount, downCount) {
   return [
@@ -127,8 +127,10 @@ test('isStatusDown: empty expected_codes falls back to default policy', () => {
 
 let server
 let base
+let lastReq = null
 before(async () => {
   server = http.createServer((req, res) => {
+    lastReq = { url: req.url, headers: req.headers }
     const code = Number.parseInt(req.url.replace('/', ''), 10) || 200
     res.writeHead(code, { 'Content-Type': 'text/plain' })
     res.end(`status ${code}`)
@@ -167,4 +169,18 @@ test('pingUrl real(local): 500 -> down', async () => {
 test('pingUrl real(local): expected_codes [403] override makes 403 -> up', async () => {
   const r = await pingUrl({ id: 't403ok', url: `${base}/403`, expected_codes: [403] })
   assert.equal(r.status, 'up')
+})
+
+// --- A3: CDN cache-busting ---
+
+test('cacheBust appends _st, preserves existing query', () => {
+  assert.match(cacheBust('https://x.test/a?b=1'), /[?&]b=1/)
+  assert.match(cacheBust('https://x.test/a?b=1'), /[?&]_st=\d+/)
+})
+test('pingUrl sends cache-bust param + no-cache headers', async () => {
+  await pingUrl({ id: 'cb', url: `${base}/200` })
+  assert.ok(lastReq)
+  assert.match(lastReq.url, /[?&]_st=\d+/)
+  assert.match(String(lastReq.headers['cache-control']), /no-cache/)
+  assert.equal(lastReq.headers['pragma'], 'no-cache')
 })

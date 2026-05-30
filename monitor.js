@@ -31,6 +31,18 @@ export function isStatusDown(status, expectedCodes) {
   return !OK_CODES.has(status)
 }
 
+// Append a unique query param so a CDN/proxy can't serve a stale cached 200 over a
+// dead origin. Preserves any existing query string.
+export function cacheBust(target) {
+  try {
+    const u = new URL(target)
+    u.searchParams.set('_st', Date.now().toString())
+    return u.toString()
+  } catch {
+    return target
+  }
+}
+
 async function loadCompanies() {
   // Include tier 1 in GitHub Actions run (Cloudflare Worker is DRY_RUN during setup phase)
   const baseTiers = CF_LIVE ? [2] : [1, 2]
@@ -52,10 +64,14 @@ async function loadCompanies() {
 export async function pingUrl(company) {
   const startTime = Date.now()
   try {
-    const resp = await fetch(company.url, {
+    const resp = await fetch(cacheBust(company.url), {
       method: 'GET',
       signal: AbortSignal.timeout(10000),
-      headers: { 'user-agent': 'Sentinel/1.0 (+https://sentinel.watch)' },
+      headers: {
+        'user-agent': 'Sentinel/1.0 (+https://sentinel.watch)',
+        'cache-control': 'no-cache, no-store, max-age=0',
+        'pragma': 'no-cache',
+      },
     })
     const responseMs = Date.now() - startTime
     // 2xx/3xx = up; 4xx + 5xx = down (per-company expected_codes can whitelist a 4xx).
