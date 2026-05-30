@@ -1,6 +1,7 @@
 import { fileURLToPath } from 'url'
 import pLimit from 'p-limit'
 import { sendTelegram, buildDownAlert, buildRecoveryAlert, buildSpikeAlert } from './scripts/telegram.js'
+import { sendEmailAlert } from './scripts/email.js'
 
 const SUPABASE_URL = process.env.SUPABASE_URL
 const SUPABASE_SRK = process.env.SUPABASE_SRK
@@ -199,6 +200,9 @@ async function main() {
       alertPromises.push(
         sendTelegram(buildDownAlert(company, newFailures, result.statusDesc))
       )
+      alertPromises.push(
+        sendEmailAlert({ type: 'outage', company_or_site: company.name, url: company.url })
+      )
     }
 
     // RECOVERY alert: was down (>=3 consecutive), now up
@@ -207,6 +211,9 @@ async function main() {
       console.log(`[RECOVERY] ${company.name} recovered after ~${durationMin}min`)
       alertPromises.push(
         sendTelegram(buildRecoveryAlert(company, durationMin, result.response_ms))
+      )
+      alertPromises.push(
+        sendEmailAlert({ type: 'recovery', company_or_site: company.name, url: company.url, duration_min: durationMin })
       )
     }
   }

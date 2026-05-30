@@ -34,6 +34,8 @@ jobs:
           RUN_TIER3: ${{ env.RUN_TIER3 }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          FRONTEND_ALERT_URL: ${{ secrets.FRONTEND_ALERT_URL }}
+          ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
           CLOUDFLARE_DRY_RUN: "true"
           X_DRY_RUN: "true"
         run: node monitor.js

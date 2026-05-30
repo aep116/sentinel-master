@@ -2,6 +2,7 @@ import { test, before, after } from 'node:test'
 import assert from 'node:assert/strict'
 import http from 'node:http'
 import { detectSpike, isStatusDown, pingUrl, cacheBust } from './monitor.js'
+import { sendEmailAlert } from './scripts/email.js'
 
 function makeResults(upCount, downCount) {
   return [
@@ -130,10 +131,14 @@ let base
 let lastReq = null
 before(async () => {
   server = http.createServer((req, res) => {
-    lastReq = { url: req.url, headers: req.headers }
-    const code = Number.parseInt(req.url.replace('/', ''), 10) || 200
-    res.writeHead(code, { 'Content-Type': 'text/plain' })
-    res.end(`status ${code}`)
+    let body = ''
+    req.on('data', (c) => { body += c })
+    req.on('end', () => {
+      lastReq = { url: req.url, headers: req.headers, body }
+      const code = Number.parseInt(req.url.replace('/', ''), 10) || 200
+      res.writeHead(code, { 'Content-Type': 'text/plain' })
+      res.end(`status ${code}`)
+    })
   })
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve))
   base = `http://127.0.0.1:${server.address().port}`
@@ -183,4 +188,27 @@ test('pingUrl sends cache-bust param + no-cache headers', async () => {
   assert.match(lastReq.url, /[?&]_st=\d+/)
   assert.match(String(lastReq.headers['cache-control']), /no-cache/)
   assert.equal(lastReq.headers['pragma'], 'no-cache')
+})
+
+// --- C1: email alert path wiring (P0-9) ---
+
+test('sendEmailAlert: POSTs to /api/alerts/check with internal header + payload', async () => {
+  process.env.FRONTEND_ALERT_URL = base
+  process.env.ALERT_EMAIL = 'ops@test.local'
+  const ok = await sendEmailAlert({ type: 'outage', company_or_site: 'Acme', url: 'https://acme.test' })
+  assert.equal(ok, true)
+  assert.match(lastReq.url, /\/api\/alerts\/check$/)
+  assert.equal(lastReq.headers['x-sentinel-internal'], '1')
+  const sent = JSON.parse(lastReq.body)
+  assert.equal(sent.type, 'outage')
+  assert.equal(sent.company_or_site, 'Acme')
+  assert.equal(sent.email, 'ops@test.local')
+  delete process.env.FRONTEND_ALERT_URL
+  delete process.env.ALERT_EMAIL
+})
+test('sendEmailAlert: returns false (never throws) when unconfigured', async () => {
+  delete process.env.FRONTEND_ALERT_URL
+  delete process.env.ALERT_EMAIL
+  const ok = await sendEmailAlert({ type: 'outage', company_or_site: 'X' })
+  assert.equal(ok, false)
 })
