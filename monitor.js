@@ -189,7 +189,7 @@ export async function pingUrl(company) {
       method: 'GET',
       signal: AbortSignal.timeout(10000),
       headers: {
-        'user-agent': 'Sentinel/1.0 (+https://sentinel.watch)',
+        'user-agent': 'Mozilla/5.0 (compatible; Sentinel/1.0; +https://sentinel.watch)',
         'cache-control': 'no-cache, no-store, max-age=0',
         'pragma': 'no-cache',
       },

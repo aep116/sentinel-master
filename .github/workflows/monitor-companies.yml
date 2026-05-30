@@ -11,6 +11,12 @@ jobs:
     timeout-minutes: 4
 
     steps:
+      - name: Signal start to healthchecks.io
+        run: |
+          curl -fsS --retry 3 \
+            https://hc-ping.com/38c5f8ef-fd91-43c5-b1fb-996b301fcdb7/start \
+            || true
+
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
@@ -39,3 +45,10 @@ jobs:
           CLOUDFLARE_DRY_RUN: "true"
           X_DRY_RUN: "true"
         run: node monitor.js
+
+      - name: Ping healthchecks.io
+        if: success()
+        run: |
+          curl -fsS --retry 3 \
+            https://hc-ping.com/38c5f8ef-fd91-43c5-b1fb-996b301fcdb7 \
+            || true
