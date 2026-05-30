@@ -30,6 +30,25 @@ export function classifyRun(downRatio) {
   return 'normal'
 }
 
+// Re-alert on a still-open incident at most once per this interval (escalation cadence).
+export const INCIDENT_REALERT_COOLDOWN_MS = 60 * 60 * 1000
+
+// Decide an incident action for one company this run. Dedup is the point: while an
+// incident is open, repeated down checks do NOT re-alert (except an hourly escalation),
+// and a recovery resolves exactly one open incident. This kills the down/recovery
+// alert-pair storm a flapping site produced under the old consecutive-counter logic.
+// @param {{down: boolean, up: boolean, openIncident: ({last_alert_at?: string}|null|undefined), now: number, cooldownMs?: number}} args
+// @returns {'open'|'realert'|'resolve'|'none'}
+export function decideIncidentAction({ down, up, openIncident, now, cooldownMs = INCIDENT_REALERT_COOLDOWN_MS }) {
+  if (down && !openIncident) return 'open'
+  if (down && openIncident) {
+    const last = openIncident.last_alert_at ? new Date(openIncident.last_alert_at).getTime() : 0
+    return now - last >= cooldownMs ? 'realert' : 'none'
+  }
+  if (up && openIncident) return 'resolve'
+  return 'none'
+}
+
 // Default "healthy" status codes (mirror of the Tier 1 worker's DEFAULT_OK_CODES).
 // 2xx success + 3xx redirect. Anything else — including 4xx (401 auth wall, 403
 // WAF/bot-block, 404, 429 throttle) and 5xx — is DOWN. A genuinely-down site that
@@ -86,6 +105,50 @@ async function bulkUpdateStats(updates) {
   if (!resp.ok) {
     console.warn(`bulk stats update failed: ${resp.status} ${await resp.text()}`)
   }
+}
+
+const INCIDENT_HEADERS = () => ({
+  apikey: SUPABASE_SRK,
+  Authorization: `Bearer ${SUPABASE_SRK}`,
+  'Content-Type': 'application/json',
+  Prefer: 'return=minimal',
+})
+
+async function loadOpenIncidents() {
+  const resp = await fetch(
+    `${SUPABASE_URL}/rest/v1/incidents?resolved_at=is.null&select=id,company_id,started_at,last_alert_at`,
+    { headers: { apikey: SUPABASE_SRK, Authorization: `Bearer ${SUPABASE_SRK}` } }
+  )
+  if (!resp.ok) {
+    console.warn(`Failed to load open incidents: ${resp.status}`)
+    return {}
+  }
+  const rows = await resp.json()
+  return Object.fromEntries(rows.map((r) => [r.company_id, r]))
+}
+
+async function openIncident(companyId, nowISO) {
+  return fetch(`${SUPABASE_URL}/rest/v1/incidents`, {
+    method: 'POST',
+    headers: INCIDENT_HEADERS(),
+    body: JSON.stringify({ company_id: companyId, started_at: nowISO, last_alert_at: nowISO }),
+  }).catch((e) => console.warn(`openIncident failed: ${e.message}`))
+}
+
+async function resolveIncident(id, durationMin, nowISO) {
+  return fetch(`${SUPABASE_URL}/rest/v1/incidents?id=eq.${id}`, {
+    method: 'PATCH',
+    headers: INCIDENT_HEADERS(),
+    body: JSON.stringify({ resolved_at: nowISO, duration_min: durationMin }),
+  }).catch((e) => console.warn(`resolveIncident failed: ${e.message}`))
+}
+
+async function touchIncident(id, nowISO) {
+  return fetch(`${SUPABASE_URL}/rest/v1/incidents?id=eq.${id}`, {
+    method: 'PATCH',
+    headers: INCIDENT_HEADERS(),
+    body: JSON.stringify({ last_alert_at: nowISO }),
+  }).catch((e) => console.warn(`touchIncident failed: ${e.message}`))
 }
 
 async function loadCompanies() {
@@ -248,6 +311,9 @@ async function main() {
   const updateLimit = pLimit(10)
   const alertPromises = []
   const statsUpdates = []
+  const openIncidents = await loadOpenIncidents()
+  const now = Date.now()
+  const nowISO = new Date(now).toISOString()
 
   for (const result of results) {
     const company = companyMap[result.company_id]
@@ -263,27 +329,32 @@ async function main() {
       )
     }
 
-    // DOWN alert: exactly at threshold (not every subsequent failure)
-    if (result.status === 'down' && newFailures === 3) {
-      console.log(`[ALERT] ${company.name} hit 3 consecutive failures — sending down alert`)
-      alertPromises.push(
-        sendTelegram(buildDownAlert(company, newFailures, result.statusDesc))
-      )
-      alertPromises.push(
-        sendEmailAlert({ type: 'outage', company_or_site: company.name, url: company.url })
-      )
-    }
+    // Incident lifecycle (P0-8): dedup alerts and track open -> resolved. A sustained
+    // outage opens ONE incident (one down alert); flapping no longer re-fires down/recovery
+    // pairs; a still-open incident only re-alerts hourly (escalation).
+    const openInc = openIncidents[result.company_id]
+    const down = result.status === 'down' && newFailures >= 3
+    const up = result.status === 'up'
+    const action = decideIncidentAction({ down, up, openIncident: openInc, now, cooldownMs: INCIDENT_REALERT_COOLDOWN_MS })
 
-    // RECOVERY alert: was down (>=3 consecutive), now up
-    if (result.status === 'up' && prevFailures >= 3) {
-      const durationMin = Math.round((prevFailures * 5)) // approximate: 5-min checks
-      console.log(`[RECOVERY] ${company.name} recovered after ~${durationMin}min`)
-      alertPromises.push(
-        sendTelegram(buildRecoveryAlert(company, durationMin, result.response_ms))
-      )
-      alertPromises.push(
-        sendEmailAlert({ type: 'recovery', company_or_site: company.name, url: company.url, duration_min: durationMin })
-      )
+    if (action === 'open') {
+      console.log(`[INCIDENT-OPEN] ${company.name} (${newFailures} consecutive failures)`)
+      alertPromises.push(updateLimit(() => openIncident(result.company_id, nowISO)))
+      alertPromises.push(sendTelegram(buildDownAlert(company, newFailures, result.statusDesc)))
+      alertPromises.push(sendEmailAlert({ type: 'outage', company_or_site: company.name, url: company.url }))
+    } else if (action === 'realert') {
+      console.log(`[INCIDENT-ESCALATE] ${company.name} still down`)
+      alertPromises.push(updateLimit(() => touchIncident(openInc.id, nowISO)))
+      alertPromises.push(sendTelegram(buildDownAlert(company, newFailures, result.statusDesc)))
+      alertPromises.push(sendEmailAlert({ type: 'outage', company_or_site: company.name, url: company.url }))
+    } else if (action === 'resolve') {
+      const durationMin = openInc.started_at
+        ? Math.max(1, Math.round((now - new Date(openInc.started_at).getTime()) / 60000))
+        : 0
+      console.log(`[INCIDENT-RESOLVE] ${company.name} after ~${durationMin}min`)
+      alertPromises.push(updateLimit(() => resolveIncident(openInc.id, durationMin, nowISO)))
+      alertPromises.push(sendTelegram(buildRecoveryAlert(company, durationMin, result.response_ms)))
+      alertPromises.push(sendEmailAlert({ type: 'recovery', company_or_site: company.name, url: company.url, duration_min: durationMin }))
     }
 
     // EMA baseline maintenance + response-time degradation (up results only)

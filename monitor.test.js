@@ -1,7 +1,7 @@
 import { test, before, after } from 'node:test'
 import assert from 'node:assert/strict'
 import http from 'node:http'
-import { detectSpike, isStatusDown, pingUrl, cacheBust, isDegraded, emaUpdate, classifyRun } from './monitor.js'
+import { detectSpike, isStatusDown, pingUrl, cacheBust, isDegraded, emaUpdate, classifyRun, decideIncidentAction } from './monitor.js'
 import { sendEmailAlert } from './scripts/email.js'
 import { shouldAlertSSL, getCertDaysLeft } from './scripts/ssl-check.js'
 import { buildDegradationAlert } from './scripts/telegram.js'
@@ -292,4 +292,32 @@ test('pingUrl body: forbidden keyword present -> down', async () => {
 test('pingUrl body: no keyword config leaves 200 as up', async () => {
   const r = await pingUrl({ id: 'k4', url: `${base}/200` })
   assert.equal(r.status, 'up')
+})
+
+// --- P0-8: incident lifecycle / dedup ---
+
+const HOUR_MS = 60 * 60 * 1000
+test('decideIncidentAction: sustained down with no open incident -> open', () => {
+  assert.equal(decideIncidentAction({ down: true, up: false, openIncident: null, now: 1_000_000 }), 'open')
+})
+test('decideIncidentAction: down while incident open (within cooldown) -> none (dedup)', () => {
+  const now = 2_000_000
+  const openIncident = { last_alert_at: new Date(now - 5 * 60 * 1000).toISOString() }
+  assert.equal(decideIncidentAction({ down: true, up: false, openIncident, now }), 'none')
+})
+test('decideIncidentAction: down while incident open past cooldown -> realert (escalation)', () => {
+  const now = 5_000_000
+  const openIncident = { last_alert_at: new Date(now - 2 * HOUR_MS).toISOString() }
+  assert.equal(decideIncidentAction({ down: true, up: false, openIncident, now }), 'realert')
+})
+test('decideIncidentAction: up with an open incident -> resolve', () => {
+  const now = 9_000_000
+  const openIncident = { last_alert_at: new Date(now).toISOString() }
+  assert.equal(decideIncidentAction({ down: false, up: true, openIncident, now }), 'resolve')
+})
+test('decideIncidentAction: up with no open incident -> none', () => {
+  assert.equal(decideIncidentAction({ down: false, up: true, openIncident: null, now: 1 }), 'none')
+})
+test('decideIncidentAction: single blip (down=false, not yet at threshold) -> none', () => {
+  assert.equal(decideIncidentAction({ down: false, up: false, openIncident: null, now: 1 }), 'none')
 })
